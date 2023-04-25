@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="add_song_container">
+        <label >Ajouter une musique :</label>
+        <div class="space"></div>
+        <input type="text" id="name_text" placeholder="nom de la musique">
+        <div class="space"></div>
+        <label for="song_file" class="label-file">Choisir une musique</label>
+        <div class="space"></div>
+        <input type="file" class="input-file" name="song" id="song_file">
+        <div class="space"></div>
+        <label for="song_file" class="label-file">Choisir une image</label>
+        <div class="space"></div>
+        <input type="file" name="image" class="input-file" id="image_file">
+        <select name="type_song" id="type_song">
+            <option value="hip-hop">hip-hop</option>
+            <option value="pop">pop</option>
+            <option value="electronique">électronique</option>
+            <option value="rock">rock</option>
+            <option value="classique">classique</option>
+            <option value="jazz">jazz</option>
+            <option value="contry">contry</option>
+        </select>
+        <div id="add_song">
+            <i class="bi bi-file-plus m-3"></i>
+            <label for="send">Envoyer</label>
+        </div>
+    </div>
+    <div id="show_songs_container">
+        <div class="songs">
+            <div class="id_song">
+                <span>10</span>
+            </div>
+            <div class="name_song">
+                <span>Bob Marley - buffalo soldiers</span>
+            </div>
+            <div class="icons-song">
+                <i class="bi bi-file-x"></i>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="songs">
+            <div class="id_song">
+                <span>10</span>
+            </div>
+            <div class="name_song">
+                <span>Bob Marley - buffalo soldiers</span>
+            </div>
+            <div class="icons-song">
+                <i class="bi bi-file-x"></i>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+<style>
+html body {
+    background-color: black;
+}
+#add_song_container {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+}
+
+label {
+    margin: auto 0;
+    color: #F43361;
+    font-weight: bold;
+}
+
+#name_text {
+    width: 30%;
+    padding-left: 15px;
+    color: #F43361;
+    border: 1px solid #F43361;
+    border-radius: 17px;
+    background-color: black;
+}
+
+#name_text::placeholder {
+    font-weight: bold;
+    color: #F43361;
+}
+
+#type_song {
+    background-color: black;
+    color: #F43361;
+    border: 1px solid #F43361;
+    border-radius: 17px;
+}
+
+#add_song {
+    font-size: 30px;
+    color: #F43361;
+}
+
+.label-file {
+    cursor: pointer;
+}
+.label-file:hover {
+    color: #6d7679;
+}
+
+.input-file {
+    display: none;
+}
+
+.space {
+    margin: 0 40px;
+}
+
+#show_songs_container {
+    margin: 0 10px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F43361;
+    border-radius: 17px;
+}
+
+.songs {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #F43361;
+}
+
+.songs:hover {
+    color: #6d7679;
+}
+
+.separator {
+    margin: 10px 100px;
+    height: 1px;
+    border: 1px solid #F43361;
+}</style>
+{% endblock %}
