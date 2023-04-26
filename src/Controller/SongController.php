@@ -27,13 +27,13 @@ class SongController extends AbstractController
         $this->em = $em;
     }
     
-    #[Route('/song', name: 'app_song')]
+    #[Route('/song', name: 'song')]
     public function index(): Response
     {
-        
-        return $this->render('song/index.html.twig', [
-            'controller_name' => 'SongController',
-        ]);
+        $songs = $this->em->getRepository(Songs::class)->findAll();
+        return $this->render('song/index.html.twig', array(
+            'songs' => $songs
+        ));
     }
 
     #[Route("/song/add", name:"song_add", methods:["POST"])]
@@ -41,12 +41,22 @@ class SongController extends AbstractController
     {
         $song = new Songs();
         $song->setName($request->get("name"));
-        $song->setUrlSong("/url");
-        $song->setUrlImage("/url");
-        $song->setTypeSong($request->get("type"));
+
+        
+        $file_song = $request->files->get("file_song");
+        $fileName_song = uniqid().'.'.$file_song->guessExtension();
+        $file_song->move("song", $fileName_song);
+        $song->setUrlSong("/song/" . $fileName_song);
+
+        $file_image = $request->files->get("file_image");
+        $fileName_image = uniqid().'.'.$file_image->guessExtension();
+        $file_image->move("images", $fileName_image);
+
+        $song->setUrlImage("/image/" . $fileName_image);
+        $song->setTypeSong($request->get("type_song"));
         $this->em->persist($song);
         $this->em->flush();
-        return new Response(json_encode(array("res", "ok")));
-        
+        return $this->redirectToRoute("song");
+
     }
 }

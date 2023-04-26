@@ -2,17 +2,18 @@
 
 {% block body %}
     <div id="add_song_container">
+    <form method="POST" action="/song/add" enctype="multipart/form-data">
         <label >Ajouter une musique :</label>
         <div class="space"></div>
-        <input type="text" id="name_text" placeholder="nom de la musique">
+        <input type="text" name="name" id="name_text" placeholder="nom de la musique">
         <div class="space"></div>
         <label for="song_file" class="label-file">Choisir une musique</label>
         <div class="space"></div>
-        <input type="file" class="input-file" name="song" id="song_file">
+        <input type="file" name="file_song" class="input-file" id="song_file">
         <div class="space"></div>
         <label for="song_file" class="label-file">Choisir une image</label>
         <div class="space"></div>
-        <input type="file" name="image" class="input-file" id="image_file">
+        <input type="file" name="file_image" class="input-file" id="image_file">
         <select name="type_song" id="type_song">
             <option value="hip-hop">hip-hop</option>
             <option value="pop">pop</option>
@@ -24,33 +25,24 @@
         </select>
         <div id="add_song">
             <i class="bi bi-file-plus m-3"></i>
-            <label for="send">Envoyer</label>
+            <input type="submit" value="Envoyer">
         </div>
+    </form>
     </div>
     <div id="show_songs_container">
-        <div class="songs">
-            <div class="id_song">
-                <span>10</span>
+    {% if songs != null %}
+        {% for song in songs %}
+            <div class="songs">
+                <div class="name_song">
+                    <span>{{song.name}}</span>
+                </div>
+                <div class="icons-song">
+                    <i class="bi bi-file-x"></i>
+                </div>
             </div>
-            <div class="name_song">
-                <span>Bob Marley - buffalo soldiers</span>
-            </div>
-            <div class="icons-song">
-                <i class="bi bi-file-x"></i>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <div class="songs">
-            <div class="id_song">
-                <span>10</span>
-            </div>
-            <div class="name_song">
-                <span>Bob Marley - buffalo soldiers</span>
-            </div>
-            <div class="icons-song">
-                <i class="bi bi-file-x"></i>
-            </div>
-        </div>
+            <div class="separator"></div>
+        {% endfor %}
+    {% endif %}
     </div>
 {% endblock %}
 {% block stylesheets %}
@@ -58,7 +50,7 @@
 html body {
     background-color: black;
 }
-#add_song_container {
+form {
     margin: 40px 0;
     display: flex;
     justify-content: center;
@@ -105,9 +97,6 @@ label {
     color: #6d7679;
 }
 
-.input-file {
-    display: none;
-}
 
 .space {
     margin: 0 40px;
