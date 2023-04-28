@@ -111,7 +111,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
                 echo "                <div class=\"sf-toolbar-info-piece\">
                     <b>";
                 // line 20
-                echo twig_escape_filter($this->env, $context["transport"], "html", null, true);
+                (($context["transport"]) ? (print (twig_escape_filter($this->env, $context["transport"], "html", null, true))) : (print ("<em>Empty Transport Name</em>")));
                 echo "</b>
                     <span class=\"sf-toolbar-status\">";
                 // line 21
@@ -267,7 +267,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
         // line 87
         if ( !twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 87, $this->source); })()), "messages", [], "any", false, false, false, 87))) {
             // line 88
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No notifications were sent.</p>
         </div>
     ";
@@ -306,7 +306,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["transport"]) {
             // line 103
             echo "        <h3>";
-            echo twig_escape_filter($this->env, $context["transport"], "html", null, true);
+            (($context["transport"]) ? (print (twig_escape_filter($this->env, $context["transport"], "html", null, true))) : (print ("<em>Empty Transport Name</em>")));
             echo "</h3>
 
         <div class=\"card-block\">
@@ -351,40 +351,39 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
                                 </div>
                                 ";
                 // line 117
-                if (twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getNotification", [], "any", true, true, false, 117)) {
-                    // line 118
+                $context["notification"] = (((twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "notification", [], "any", true, true, false, 117) &&  !(null === twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "notification", [], "any", false, false, false, 117)))) ? (twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "notification", [], "any", false, false, false, 117)) : (null));
+                // line 118
+                echo "                                ";
+                if ((isset($context["notification"]) || array_key_exists("notification", $context) ? $context["notification"] : (function () { throw new RuntimeError('Variable "notification" does not exist.', 118, $this->source); })())) {
+                    // line 119
                     echo "                                    <div class=\"card-block\">
                                         <div class=\"row\">
                                             <div class=\"col\">
                                                 <span class=\"label\">Content</span>
                                                 <pre class=\"prewrap\">";
-                    // line 122
-                    (((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getNotification", [], "method", false, true, false, 122), "getContent", [], "method", true, true, false, 122) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getNotification", [], "method", false, true, false, 122), "getContent", [], "method", false, false, false, 122)))) ? (print (twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getNotification", [], "method", false, true, false, 122), "getContent", [], "method", false, false, false, 122), "html", null, true))) : (print ("(empty)")));
+                    // line 123
+                    (((twig_get_attribute($this->env, $this->source, ($context["notification"] ?? null), "getContent", [], "method", true, true, false, 123) &&  !(null === twig_get_attribute($this->env, $this->source, ($context["notification"] ?? null), "getContent", [], "method", false, false, false, 123)))) ? (print (twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["notification"] ?? null), "getContent", [], "method", false, false, false, 123), "html", null, true))) : (print ("(empty)")));
                     echo "</pre>
                                                 <span class=\"label\">Importance</span>
                                                 <pre class=\"prewrap\">";
-                    // line 124
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 124, $this->source); })()), "getNotification", [], "method", false, false, false, 124), "getImportance", [], "method", false, false, false, 124), "html", null, true);
+                    // line 125
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["notification"]) || array_key_exists("notification", $context) ? $context["notification"] : (function () { throw new RuntimeError('Variable "notification" does not exist.', 125, $this->source); })()), "getImportance", [], "method", false, false, false, 125), "html", null, true);
                     echo "</pre>
                                             </div>
                                         </div>
                                     </div>
                                 ";
                 }
-                // line 129
+                // line 130
                 echo "                                    <div class=\"card-block\">
                                         <div class=\"sf-tabs sf-tabs-sm\">
                                             ";
-                // line 131
-                if (twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getNotification", [], "any", true, true, false, 131)) {
-                    // line 132
+                // line 132
+                if ((isset($context["notification"]) || array_key_exists("notification", $context) ? $context["notification"] : (function () { throw new RuntimeError('Variable "notification" does not exist.', 132, $this->source); })())) {
+                    // line 133
                     echo "                                                <div class=\"tab\">
                                                     <h3 class=\"tab-title\">Notification</h3>
-                                                    ";
-                    // line 134
-                    $context["notification"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["event"], "message", [], "any", false, false, false, 134), "getNotification", [], "method", false, false, false, 134);
-                    // line 135
-                    echo "                                                    <div class=\"tab-content\">
+                                                    <div class=\"tab-content\">
                                                         <pre class=\"prewrap\" style=\"max-height: 600px\">";
                     // line 137
                     echo twig_escape_filter($this->env, ("Subject: " . twig_get_attribute($this->env, $this->source, (isset($context["notification"]) || array_key_exists("notification", $context) ? $context["notification"] : (function () { throw new RuntimeError('Variable "notification" does not exist.', 137, $this->source); })()), "getSubject", [], "method", false, false, false, 137)), "html", null, true);
@@ -472,7 +471,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
 
     public function getDebugInfo()
     {
-        return array (  448 => 165,  426 => 156,  423 => 154,  420 => 152,  418 => 151,  413 => 147,  405 => 142,  402 => 141,  399 => 140,  396 => 139,  393 => 138,  390 => 137,  387 => 135,  385 => 134,  381 => 132,  379 => 131,  375 => 129,  367 => 124,  362 => 122,  356 => 118,  354 => 117,  349 => 115,  339 => 110,  336 => 109,  333 => 108,  316 => 107,  308 => 103,  304 => 102,  300 => 100,  291 => 97,  287 => 96,  284 => 95,  280 => 94,  276 => 92,  270 => 88,  268 => 87,  263 => 84,  260 => 83,  250 => 82,  239 => 79,  233 => 76,  230 => 75,  228 => 74,  222 => 71,  218 => 70,  215 => 69,  212 => 68,  202 => 67,  156 => 31,  146 => 30,  133 => 26,  130 => 25,  127 => 24,  118 => 21,  114 => 20,  111 => 19,  107 => 18,  101 => 15,  97 => 13,  95 => 12,  92 => 11,  87 => 9,  82 => 8,  79 => 7,  77 => 6,  74 => 5,  71 => 4,  61 => 3,  38 => 1,);
+        return array (  447 => 165,  425 => 156,  422 => 154,  419 => 152,  417 => 151,  412 => 147,  404 => 142,  401 => 141,  398 => 140,  395 => 139,  392 => 138,  389 => 137,  384 => 133,  382 => 132,  378 => 130,  370 => 125,  365 => 123,  359 => 119,  356 => 118,  354 => 117,  349 => 115,  339 => 110,  336 => 109,  333 => 108,  316 => 107,  308 => 103,  304 => 102,  300 => 100,  291 => 97,  287 => 96,  284 => 95,  280 => 94,  276 => 92,  270 => 88,  268 => 87,  263 => 84,  260 => 83,  250 => 82,  239 => 79,  233 => 76,  230 => 75,  228 => 74,  222 => 71,  218 => 70,  215 => 69,  212 => 68,  202 => 67,  156 => 31,  146 => 30,  133 => 26,  130 => 25,  127 => 24,  118 => 21,  114 => 20,  111 => 19,  107 => 18,  101 => 15,  97 => 13,  95 => 12,  92 => 11,  87 => 9,  82 => 8,  79 => 7,  77 => 6,  74 => 5,  71 => 4,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -496,7 +495,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
 
             {% for transport in events.transports %}
                 <div class=\"sf-toolbar-info-piece\">
-                    <b>{{ transport }}</b>
+                    <b>{{ transport ?: '<em>Empty Transport Name</em>' }}</b>
                     <span class=\"sf-toolbar-status\">{{ events.messages(transport)|length }}</span>
                 </div>
             {% endfor %}
@@ -564,7 +563,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
     <h2>Notifications</h2>
 
     {% if not events.messages|length %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No notifications were sent.</p>
         </div>
     {% endif %}
@@ -579,7 +578,7 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
     </div>
 
     {% for transport in events.transports %}
-        <h3>{{ transport }}</h3>
+        <h3>{{ transport ?: '<em>Empty Transport Name</em>' }}</h3>
 
         <div class=\"card-block\">
             <div class=\"sf-tabs sf-tabs-sm\">
@@ -593,24 +592,24 @@ class __TwigTemplate_c632ad8c8c22dac8e4137a85ee98a911 extends Template
                                     <span class=\"label\">Subject</span>
                                     <h2 class=\"m-t-10\">{{ message.getSubject() ?? '(empty)' }}</h2>
                                 </div>
-                                {% if message.getNotification is defined %}
+                                {% set notification = message.notification ?? null %}
+                                {% if notification %}
                                     <div class=\"card-block\">
                                         <div class=\"row\">
                                             <div class=\"col\">
                                                 <span class=\"label\">Content</span>
-                                                <pre class=\"prewrap\">{{ message.getNotification().getContent() ?? '(empty)' }}</pre>
+                                                <pre class=\"prewrap\">{{ notification.getContent() ?? '(empty)' }}</pre>
                                                 <span class=\"label\">Importance</span>
-                                                <pre class=\"prewrap\">{{ message.getNotification().getImportance() }}</pre>
+                                                <pre class=\"prewrap\">{{ notification.getImportance() }}</pre>
                                             </div>
                                         </div>
                                     </div>
                                 {% endif %}
                                     <div class=\"card-block\">
                                         <div class=\"sf-tabs sf-tabs-sm\">
-                                            {% if message.getNotification is defined %}
+                                            {% if notification %}
                                                 <div class=\"tab\">
                                                     <h3 class=\"tab-title\">Notification</h3>
-                                                    {% set notification = event.message.getNotification() %}
                                                     <div class=\"tab-content\">
                                                         <pre class=\"prewrap\" style=\"max-height: 600px\">
                                                             {{- 'Subject: ' ~ notification.getSubject() }}<br/>

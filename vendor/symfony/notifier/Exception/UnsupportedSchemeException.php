@@ -28,6 +28,10 @@ class UnsupportedSchemeException extends LogicException
             'class' => Bridge\Clickatell\ClickatellTransportFactory::class,
             'package' => 'symfony/clickatell-notifier',
         ],
+        'contact-everyone' => [
+            'class' => Bridge\ContactEveryone\ContactEveryoneTransportFactory::class,
+            'package' => 'symfony/contact-everyone-notifier',
+        ],
         'discord' => [
             'class' => Bridge\Discord\DiscordTransportFactory::class,
             'package' => 'symfony/discord-notifier',
@@ -172,6 +176,10 @@ class UnsupportedSchemeException extends LogicException
             'class' => Bridge\Smsc\SmscTransportFactory::class,
             'package' => 'symfony/smsc-notifier',
         ],
+        'sms-factor' => [
+            'class' => Bridge\SmsFactor\SmsFactorTransportFactory::class,
+            'package' => 'symfony/sms-factor-notifier',
+        ],
         'sns' => [
             'class' => Bridge\AmazonSns\AmazonSnsTransportFactory::class,
             'package' => 'symfony/amazon-sns-notifier',
@@ -203,6 +211,10 @@ class UnsupportedSchemeException extends LogicException
         'yunpian' => [
             'class' => Bridge\Yunpian\YunpianTransportFactory::class,
             'package' => 'symfony/yunpian-notifier',
+        ],
+        'zendesk' => [
+            'class' => Bridge\Zendesk\ZendeskTransportFactory::class,
+            'package' => 'symfony/zendesk-notifier',
         ],
         'zulip' => [
             'class' => Bridge\Zulip\ZulipTransportFactory::class,

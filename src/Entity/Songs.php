@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\SongsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SongsRepository::class)]
@@ -14,73 +12,69 @@ class Songs
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+    
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $artist_name = null;
+    private ?string $url_song = null;
 
-    #[ORM\ManyToMany(targetEntity: Likes::class, mappedBy: 'id_song')]
-    private Collection $likes;
+    #[ORM\Column(length: 255)]
+    private ?string $url_image = null;
 
-    public function __construct()
-    {
-        $this->likes = new ArrayCollection();
-    }
+    #[ORM\Column(length: 255)]
+    private ?string $type_song = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getArtistName(): ?string
+    public function getUrlSong(): ?string
     {
-        return $this->artist_name;
+        return $this->url_song;
     }
 
-    public function setArtistName(string $artist_name): self
+    public function setUrlSong(string $url_song): self
     {
-        $this->artist_name = $artist_name;
+        $this->url_song = $url_song;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Likes>
-     */
-    public function getLikes(): Collection
+    public function getUrlImage(): ?string
     {
-        return $this->likes;
+        return $this->url_image;
     }
 
-    public function addLike(Likes $like): self
+    public function setUrlImage(string $url_image): self
     {
-        if (!$this->likes->contains($like)) {
-            $this->likes->add($like);
-            $like->addIdSong($this);
-        }
+        $this->url_image = $url_image;
 
         return $this;
     }
 
-    public function removeLike(Likes $like): self
+    public function getTypeSong(): ?string
     {
-        if ($this->likes->removeElement($like)) {
-            $like->removeIdSong($this);
-        }
+        return $this->type_song;
+    }
+
+    public function setTypeSong(string $type_song): self
+    {
+        $this->type_song = $type_song;
 
         return $this;
     }

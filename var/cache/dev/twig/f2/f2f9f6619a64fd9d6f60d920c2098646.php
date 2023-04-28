@@ -40,11 +40,12 @@ class __TwigTemplate_59f547e055b63dbaae225a7449e45d97 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/serializer.svg"));
 
         // line 1
-        echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
-  <line x1=\"21\" y1=\"17\" x2=\"3\" y2=\"17\" />
-  <path d=\"M18 4l3 3l-3 3\" />
-  <path d=\"M18 20l3 -3l-3 -3\" />
-  <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\" />
+        echo "<svg xmlns=\"http://www.w3.org/2000/svg\" data-icon-name=\"icon-tabler-arrows-right\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
+  <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path>
+  <line x1=\"21\" y1=\"17\" x2=\"3\" y2=\"17\"></line>
+  <path d=\"M18 4l3 3l-3 3\"></path>
+  <path d=\"M18 20l3 -3l-3 -3\"></path>
+  <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\"></line>
 </svg>
 ";
         
@@ -67,11 +68,12 @@ class __TwigTemplate_59f547e055b63dbaae225a7449e45d97 extends Template
 
     public function getSourceContext()
     {
-        return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
-  <line x1=\"21\" y1=\"17\" x2=\"3\" y2=\"17\" />
-  <path d=\"M18 4l3 3l-3 3\" />
-  <path d=\"M18 20l3 -3l-3 -3\" />
-  <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\" />
+        return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" data-icon-name=\"icon-tabler-arrows-right\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
+  <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path>
+  <line x1=\"21\" y1=\"17\" x2=\"3\" y2=\"17\"></line>
+  <path d=\"M18 4l3 3l-3 3\"></path>
+  <path d=\"M18 20l3 -3l-3 -3\"></path>
+  <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\"></line>
 </svg>
 ", "@WebProfiler/Icon/serializer.svg", "C:\\Users\\theoc\\Desktop\\simplon\\brief\\cafe80\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\serializer.svg");
     }

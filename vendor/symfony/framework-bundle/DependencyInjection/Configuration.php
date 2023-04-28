@@ -133,6 +133,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('error_controller')
                     ->defaultValue('error_controller')
                 ->end()
+                ->booleanNode('handle_all_throwables')->info('HttpKernel will handle all kinds of \Throwable')->end()
             ->end()
         ;
 
@@ -236,8 +237,9 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('field_name')->defaultValue('_token')->end()
                             ->end()
                         ->end()
-                        // to be deprecated in Symfony 6.1
-                        ->booleanNode('legacy_error_messages')->end()
+                        ->booleanNode('legacy_error_messages')
+                            ->setDeprecated('symfony/framework-bundle', '6.2')
+                        ->end()
                     ->end()
                 ->end()
             ->end()
@@ -267,6 +269,7 @@ class Configuration implements ConfigurationInterface
                         ->booleanNode('allow_revalidate')->end()
                         ->integerNode('stale_while_revalidate')->end()
                         ->integerNode('stale_if_error')->end()
+                        ->booleanNode('terminate_on_cache_hit')->end()
                     ->end()
                 ->end()
             ->end()
@@ -349,13 +352,13 @@ class Configuration implements ConfigurationInterface
                                     $workflows = [];
                                 }
 
-                                if (1 === \count($workflows) && isset($workflows['workflows']) && !array_is_list($workflows['workflows']) && !empty(array_diff(array_keys($workflows['workflows']), ['audit_trail', 'type', 'marking_store', 'supports', 'support_strategy', 'initial_marking', 'places', 'transitions']))) {
+                                if (1 === \count($workflows) && isset($workflows['workflows']) && !array_is_list($workflows['workflows']) && array_diff(array_keys($workflows['workflows']), ['audit_trail', 'type', 'marking_store', 'supports', 'support_strategy', 'initial_marking', 'places', 'transitions'])) {
                                     $workflows = $workflows['workflows'];
                                 }
 
                                 foreach ($workflows as $key => $workflow) {
                                     if (isset($workflow['enabled']) && false === $workflow['enabled']) {
-                                        throw new LogicException(sprintf('Cannot disable a single workflow. Remove the configuration for the workflow "%s" instead.', $workflow['name']));
+                                        throw new LogicException(sprintf('Cannot disable a single workflow. Remove the configuration for the workflow "%s" instead.', $key));
                                     }
 
                                     unset($workflows[$key]['enabled']);
@@ -605,6 +608,7 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('resource')->isRequired()->end()
                         ->scalarNode('type')->end()
+                        ->scalarNode('cache_dir')->defaultValue('%kernel.cache_dir%')->end()
                         ->scalarNode('default_uri')
                             ->info('The default URI used to generate URLs in a non-HTTP context')
                             ->defaultNull()
@@ -1494,6 +1498,10 @@ class Configuration implements ConfigurationInterface
                                             ->integerNode('max_delay')->defaultValue(0)->min(0)->info('Max time in ms that a retry should ever be delayed (0 = infinite)')->end()
                                         ->end()
                                     ->end()
+                                    ->scalarNode('rate_limiter')
+                                        ->defaultNull()
+                                        ->info('Rate limiter name to use when processing messages')
+                                    ->end()
                                 ->end()
                             ->end()
                         ->end()
@@ -1512,15 +1520,36 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->scalarNode('default_bus')->defaultNull()->end()
                         ->arrayNode('buses')
-                            ->defaultValue(['messenger.bus.default' => ['default_middleware' => true, 'middleware' => []]])
+                            ->defaultValue(['messenger.bus.default' => ['default_middleware' => ['enabled' => true, 'allow_no_handlers' => false, 'allow_no_senders' => true], 'middleware' => []]])
                             ->normalizeKeys(false)
                             ->useAttributeAsKey('name')
                             ->arrayPrototype()
                                 ->addDefaultsIfNotSet()
                                 ->children()
-                                    ->enumNode('default_middleware')
-                                        ->values([true, false, 'allow_no_handlers'])
-                                        ->defaultTrue()
+                                    ->arrayNode('default_middleware')
+                                        ->beforeNormalization()
+                                            ->ifTrue(function ($defaultMiddleware) { return \is_string($defaultMiddleware) || \is_bool($defaultMiddleware); })
+                                            ->then(function ($defaultMiddleware): array {
+                                                if (\is_string($defaultMiddleware) && 'allow_no_handlers' === $defaultMiddleware) {
+                                                    return [
+                                                        'enabled' => true,
+                                                        'allow_no_handlers' => true,
+                                                        'allow_no_senders' => true,
+                                                    ];
+                                                }
+
+                                                return [
+                                                    'enabled' => $defaultMiddleware,
+                                                    'allow_no_handlers' => false,
+                                                    'allow_no_senders' => true,
+                                                ];
+                                            })
+                                        ->end()
+                                        ->canBeDisabled()
+                                        ->children()
+                                            ->booleanNode('allow_no_handlers')->defaultFalse()->end()
+                                            ->booleanNode('allow_no_senders')->defaultTrue()->end()
+                                        ->end()
                                     ->end()
                                     ->arrayNode('middleware')
                                         ->performNoDeepMerging()
@@ -2102,7 +2131,7 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->enumNode('default_uuid_version')
                             ->defaultValue(6)
-                            ->values([6, 4, 1])
+                            ->values([7, 6, 4, 1])
                         ->end()
                         ->enumNode('name_based_uuid_version')
                             ->defaultValue(5)
@@ -2113,7 +2142,7 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->enumNode('time_based_uuid_version')
                             ->defaultValue(6)
-                            ->values([6, 1])
+                            ->values([7, 6, 1])
                         ->end()
                         ->scalarNode('time_based_uuid_node')
                             ->cannotBeEmpty()

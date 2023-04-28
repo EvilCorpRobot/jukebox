@@ -33,7 +33,7 @@ class UidConfig
 
     /**
      * @default 6
-     * @param ParamConfigurator|6|4|1 $value
+     * @param ParamConfigurator|7|6|4|1 $value
      * @return $this
      */
     public function defaultUuidVersion($value): static
@@ -72,7 +72,7 @@ class UidConfig
 
     /**
      * @default 6
-     * @param ParamConfigurator|6|1 $value
+     * @param ParamConfigurator|7|6|1 $value
      * @return $this
      */
     public function timeBasedUuidVersion($value): static

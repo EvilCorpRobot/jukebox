@@ -343,7 +343,7 @@ class __TwigTemplate_acda8f8a7a7725cdafd71badded69ee7 extends Template
         }
         if (!$context['_iterated']) {
             // line 99
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No calls to the validator were collected during this request.</p>
         </div>
     ";
@@ -474,7 +474,7 @@ class __TwigTemplate_acda8f8a7a7725cdafd71badded69ee7 extends Template
             {% endif %}
         </div>
     {% else %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No calls to the validator were collected during this request.</p>
         </div>
     {% endfor %}

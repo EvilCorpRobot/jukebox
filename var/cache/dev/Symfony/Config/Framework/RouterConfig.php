@@ -13,6 +13,7 @@ class RouterConfig
     private $enabled;
     private $resource;
     private $type;
+    private $cacheDir;
     private $defaultUri;
     private $httpPort;
     private $httpsPort;
@@ -55,6 +56,19 @@ class RouterConfig
     {
         $this->_usedProperties['type'] = true;
         $this->type = $value;
+
+        return $this;
+    }
+
+    /**
+     * @default '%kernel.cache_dir%'
+     * @param ParamConfigurator|mixed $value
+     * @return $this
+     */
+    public function cacheDir($value): static
+    {
+        $this->_usedProperties['cacheDir'] = true;
+        $this->cacheDir = $value;
 
         return $this;
     }
@@ -149,6 +163,12 @@ class RouterConfig
             unset($value['type']);
         }
 
+        if (array_key_exists('cache_dir', $value)) {
+            $this->_usedProperties['cacheDir'] = true;
+            $this->cacheDir = $value['cache_dir'];
+            unset($value['cache_dir']);
+        }
+
         if (array_key_exists('default_uri', $value)) {
             $this->_usedProperties['defaultUri'] = true;
             $this->defaultUri = $value['default_uri'];
@@ -195,6 +215,9 @@ class RouterConfig
         }
         if (isset($this->_usedProperties['type'])) {
             $output['type'] = $this->type;
+        }
+        if (isset($this->_usedProperties['cacheDir'])) {
+            $output['cache_dir'] = $this->cacheDir;
         }
         if (isset($this->_usedProperties['defaultUri'])) {
             $output['default_uri'] = $this->defaultUri;

@@ -48,8 +48,9 @@ class ConsumeMessagesCommand extends Command
     private array $receiverNames;
     private ?ResetServicesListener $resetServicesListener;
     private array $busIds;
+    private ?ContainerInterface $rateLimiterLocator;
 
-    public function __construct(RoutableMessageBus $routableBus, ContainerInterface $receiverLocator, EventDispatcherInterface $eventDispatcher, LoggerInterface $logger = null, array $receiverNames = [], ResetServicesListener $resetServicesListener = null, array $busIds = [])
+    public function __construct(RoutableMessageBus $routableBus, ContainerInterface $receiverLocator, EventDispatcherInterface $eventDispatcher, LoggerInterface $logger = null, array $receiverNames = [], ResetServicesListener $resetServicesListener = null, array $busIds = [], ContainerInterface $rateLimiterLocator = null)
     {
         $this->routableBus = $routableBus;
         $this->receiverLocator = $receiverLocator;
@@ -58,13 +59,11 @@ class ConsumeMessagesCommand extends Command
         $this->receiverNames = $receiverNames;
         $this->resetServicesListener = $resetServicesListener;
         $this->busIds = $busIds;
+        $this->rateLimiterLocator = $rateLimiterLocator;
 
         parent::__construct();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function configure(): void
     {
         $defaultReceiverName = 1 === \count($this->receiverNames) ? current($this->receiverNames) : null;
@@ -125,9 +124,6 @@ EOF
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output);
@@ -151,12 +147,10 @@ EOF
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $receivers = [];
+        $rateLimiters = [];
         foreach ($receiverNames = $input->getArgument('receivers') as $receiverName) {
             if (!$this->receiverLocator->has($receiverName)) {
                 $message = sprintf('The receiver "%s" does not exist.', $receiverName);
@@ -168,6 +162,9 @@ EOF
             }
 
             $receivers[$receiverName] = $this->receiverLocator->get($receiverName);
+            if ($this->rateLimiterLocator?->has($receiverName)) {
+                $rateLimiters[$receiverName] = $this->rateLimiterLocator->get($receiverName);
+            }
         }
 
         if (null !== $this->resetServicesListener && !$input->getOption('no-reset')) {
@@ -222,7 +219,7 @@ EOF
 
         $bus = $input->getOption('bus') ? $this->routableBus->getMessageBus($input->getOption('bus')) : $this->routableBus;
 
-        $worker = new Worker($receivers, $bus, $this->eventDispatcher, $this->logger);
+        $worker = new Worker($receivers, $bus, $this->eventDispatcher, $this->logger, $rateLimiters);
         $options = [
             'sleep' => $input->getOption('sleep') * 1000000,
         ];
@@ -261,11 +258,11 @@ EOF
 
         switch (substr(rtrim($memoryLimit, 'b'), -1)) {
             case 't': $max *= 1024;
-            // no break
+                // no break
             case 'g': $max *= 1024;
-            // no break
+                // no break
             case 'm': $max *= 1024;
-            // no break
+                // no break
             case 'k': $max *= 1024;
         }
 

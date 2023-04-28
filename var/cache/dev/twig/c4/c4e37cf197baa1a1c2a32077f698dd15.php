@@ -43,7 +43,7 @@ class __TwigTemplate_180fd52f855d7ee243c4d74088cdcecd extends Template
         echo "/*
  * Copyright (c) 2017 ZURB, inc. -- MIT License
  *
- * https://raw.githubusercontent.com/foundation/foundation-emails/v2.2.1/dist/foundation-emails.css
+ * https://github.com/foundation/foundation-emails/blob/v2.2.1/dist/foundation-emails.css
  */
 
 .wrapper {
@@ -1731,7 +1731,7 @@ body.outlook p {
         return new Source("/*
  * Copyright (c) 2017 ZURB, inc. -- MIT License
  *
- * https://raw.githubusercontent.com/foundation/foundation-emails/v2.2.1/dist/foundation-emails.css
+ * https://github.com/foundation/foundation-emails/blob/v2.2.1/dist/foundation-emails.css
  */
 
 .wrapper {

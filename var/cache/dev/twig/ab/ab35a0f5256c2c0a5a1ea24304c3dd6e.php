@@ -179,7 +179,7 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
             // line 42
             echo "        <h2>Twig</h2>
 
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No Twig templates were rendered for this request.</p>
         </div>
     ";
@@ -196,28 +196,32 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
                 <span class=\"label\">Render time</span>
             </div>
 
-            <div class=\"metric\">
-                <span class=\"value\">";
-            // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 57, $this->source); })()), "templatecount", [], "any", false, false, false, 57), "html", null, true);
-            echo "</span>
-                <span class=\"label\">Template calls</span>
-            </div>
+            <div class=\"metric-divider\"></div>
 
-            <div class=\"metric\">
-                <span class=\"value\">";
-            // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 62, $this->source); })()), "blockcount", [], "any", false, false, false, 62), "html", null, true);
+            <div class=\"metric-group\">
+                <div class=\"metric\">
+                    <span class=\"value\">";
+            // line 60
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 60, $this->source); })()), "templatecount", [], "any", false, false, false, 60), "html", null, true);
             echo "</span>
-                <span class=\"label\">Block calls</span>
-            </div>
+                    <span class=\"label\">Template calls</span>
+                </div>
 
-            <div class=\"metric\">
-                <span class=\"value\">";
-            // line 67
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 67, $this->source); })()), "macrocount", [], "any", false, false, false, 67), "html", null, true);
+                <div class=\"metric\">
+                    <span class=\"value\">";
+            // line 65
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 65, $this->source); })()), "blockcount", [], "any", false, false, false, 65), "html", null, true);
             echo "</span>
-                <span class=\"label\">Macro calls</span>
+                    <span class=\"label\">Block calls</span>
+                </div>
+
+                <div class=\"metric\">
+                    <span class=\"value\">";
+            // line 70
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 70, $this->source); })()), "macrocount", [], "any", false, false, false, 70), "html", null, true);
+            echo "</span>
+                    <span class=\"label\">Macro calls</span>
+                </div>
             </div>
         </div>
 
@@ -236,58 +240,50 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
             </thead>
             <tbody>
             ";
-            // line 86
+            // line 90
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 86, $this->source); })()), "templates", [], "any", false, false, false, 86));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 90, $this->source); })()), "templates", [], "any", false, false, false, 90));
             foreach ($context['_seq'] as $context["template"] => $context["count"]) {
-                // line 87
-                echo "                <tr>";
-                // line 88
-                $context["file"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["collector"] ?? null), "templatePaths", [], "any", false, true, false, 88), $context["template"], [], "array", true, true, false, 88)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["collector"] ?? null), "templatePaths", [], "any", false, true, false, 88), $context["template"], [], "array", false, false, false, 88), false)) : (false));
-                // line 89
-                $context["link"] = (((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 89, $this->source); })())) ? ($this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 89, $this->source); })()), 1)) : (false));
-                // line 90
-                echo "<td>
-                        <span class=\"sf-icon icon-twig\">";
                 // line 91
-                echo twig_source($this->env, "@WebProfiler/Icon/twig.svg");
-                echo "</span>
-                        ";
+                echo "                <tr>
+                    ";
                 // line 92
-                if ((isset($context["link"]) || array_key_exists("link", $context) ? $context["link"] : (function () { throw new RuntimeError('Variable "link" does not exist.', 92, $this->source); })())) {
-                    // line 93
-                    echo "                            <a href=\"";
-                    echo twig_escape_filter($this->env, (isset($context["link"]) || array_key_exists("link", $context) ? $context["link"] : (function () { throw new RuntimeError('Variable "link" does not exist.', 93, $this->source); })()), "html", null, true);
-                    echo "\" title=\"";
-                    echo twig_escape_filter($this->env, (isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 93, $this->source); })()), "html", null, true);
-                    echo "\">";
-                    echo twig_escape_filter($this->env, $context["template"], "html", null, true);
-                    echo "</a>
-                            <div>
-                                <a class=\"text-muted\" href=\"";
-                    // line 95
-                    echo twig_escape_filter($this->env, (isset($context["link"]) || array_key_exists("link", $context) ? $context["link"] : (function () { throw new RuntimeError('Variable "link" does not exist.', 95, $this->source); })()), "html", null, true);
-                    echo "\" title=\"";
-                    echo twig_escape_filter($this->env, (isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 95, $this->source); })()), "html", null, true);
-                    echo "\">
-                                    ";
+                $context["file"] = ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["collector"] ?? null), "templatePaths", [], "any", false, true, false, 92), $context["template"], [], "array", true, true, false, 92)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["collector"] ?? null), "templatePaths", [], "any", false, true, false, 92), $context["template"], [], "array", false, false, false, 92), false)) : (false));
+                // line 93
+                echo "                    ";
+                $context["link"] = (((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 93, $this->source); })())) ? ($this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 93, $this->source); })()), 1)) : (false));
+                // line 94
+                echo "                    <td class=\"font-normal\">
+                        ";
+                // line 95
+                if ((isset($context["link"]) || array_key_exists("link", $context) ? $context["link"] : (function () { throw new RuntimeError('Variable "link" does not exist.', 95, $this->source); })())) {
                     // line 96
-                    echo twig_escape_filter($this->env, _twig_default_filter($this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileRelative((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 96, $this->source); })())), (isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 96, $this->source); })())), "html", null, true);
+                    echo "                            <a href=\"";
+                    echo twig_escape_filter($this->env, (isset($context["link"]) || array_key_exists("link", $context) ? $context["link"] : (function () { throw new RuntimeError('Variable "link" does not exist.', 96, $this->source); })()), "html", null, true);
+                    echo "\" title=\"";
+                    echo twig_escape_filter($this->env, (isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 96, $this->source); })()), "html", null, true);
+                    echo "\" class=\"stretched-link\">
+                                ";
+                    // line 97
+                    echo twig_escape_filter($this->env, $context["template"], "html", null, true);
                     echo "
-                                </a>
-                            </div>
+                                <span class=\"template-file-path\">";
+                    // line 98
+                    echo twig_escape_filter($this->env, _twig_default_filter($this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileRelative((isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 98, $this->source); })())), (isset($context["file"]) || array_key_exists("file", $context) ? $context["file"] : (function () { throw new RuntimeError('Variable "file" does not exist.', 98, $this->source); })())), "html", null, true);
+                    echo "</span>
+                            </a>
                         ";
                 } else {
-                    // line 100
+                    // line 101
                     echo "                            ";
                     echo twig_escape_filter($this->env, $context["template"], "html", null, true);
                     echo "
                         ";
                 }
-                // line 102
+                // line 103
                 echo "                    </td>
                     <td class=\"font-normal num-col\">";
-                // line 103
+                // line 104
                 echo twig_escape_filter($this->env, $context["count"], "html", null, true);
                 echo "</td>
                 </tr>
@@ -296,7 +292,7 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['template'], $context['count'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 106
+            // line 107
             echo "            </tbody>
         </table>
 
@@ -304,8 +300,8 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
 
         <div id=\"twig-dump\">
             ";
-            // line 112
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 112, $this->source); })()), "htmlcallgraph", [], "any", false, false, false, 112), "html", null, true);
+            // line 113
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 113, $this->source); })()), "htmlcallgraph", [], "any", false, false, false, 113), "html", null, true);
             echo "
         </div>
     ";
@@ -330,7 +326,7 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
 
     public function getDebugInfo()
     {
-        return array (  308 => 112,  300 => 106,  291 => 103,  288 => 102,  282 => 100,  275 => 96,  269 => 95,  259 => 93,  257 => 92,  253 => 91,  250 => 90,  248 => 89,  246 => 88,  244 => 87,  240 => 86,  218 => 67,  210 => 62,  202 => 57,  194 => 52,  188 => 48,  180 => 42,  177 => 41,  167 => 40,  153 => 35,  148 => 34,  138 => 33,  126 => 30,  123 => 29,  117 => 26,  110 => 22,  103 => 18,  96 => 14,  92 => 12,  90 => 11,  87 => 10,  81 => 7,  76 => 6,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  304 => 113,  296 => 107,  287 => 104,  284 => 103,  278 => 101,  272 => 98,  268 => 97,  261 => 96,  259 => 95,  256 => 94,  253 => 93,  251 => 92,  248 => 91,  244 => 90,  221 => 70,  213 => 65,  205 => 60,  194 => 52,  188 => 48,  180 => 42,  177 => 41,  167 => 40,  153 => 35,  148 => 34,  138 => 33,  126 => 30,  123 => 29,  117 => 26,  110 => 22,  103 => 18,  96 => 14,  92 => 12,  90 => 11,  87 => 10,  81 => 7,  76 => 6,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -378,7 +374,7 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
     {% if collector.templatecount == 0 %}
         <h2>Twig</h2>
 
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No Twig templates were rendered for this request.</p>
         </div>
     {% else %}
@@ -390,19 +386,23 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
                 <span class=\"label\">Render time</span>
             </div>
 
-            <div class=\"metric\">
-                <span class=\"value\">{{ collector.templatecount }}</span>
-                <span class=\"label\">Template calls</span>
-            </div>
+            <div class=\"metric-divider\"></div>
 
-            <div class=\"metric\">
-                <span class=\"value\">{{ collector.blockcount }}</span>
-                <span class=\"label\">Block calls</span>
-            </div>
+            <div class=\"metric-group\">
+                <div class=\"metric\">
+                    <span class=\"value\">{{ collector.templatecount }}</span>
+                    <span class=\"label\">Template calls</span>
+                </div>
 
-            <div class=\"metric\">
-                <span class=\"value\">{{ collector.macrocount }}</span>
-                <span class=\"label\">Macro calls</span>
+                <div class=\"metric\">
+                    <span class=\"value\">{{ collector.blockcount }}</span>
+                    <span class=\"label\">Block calls</span>
+                </div>
+
+                <div class=\"metric\">
+                    <span class=\"value\">{{ collector.macrocount }}</span>
+                    <span class=\"label\">Macro calls</span>
+                </div>
             </div>
         </div>
 
@@ -422,17 +422,14 @@ class __TwigTemplate_0bb11ba8565e6ad329affbaf5b3e1089 extends Template
             <tbody>
             {% for template, count in collector.templates %}
                 <tr>
-                    {%- set file = collector.templatePaths[template]|default(false) -%}
-                    {%- set link = file ? file|file_link(1) : false -%}
-                    <td>
-                        <span class=\"sf-icon icon-twig\">{{ source('@WebProfiler/Icon/twig.svg') }}</span>
+                    {% set file = collector.templatePaths[template]|default(false) %}
+                    {% set link = file ? file|file_link(1) : false %}
+                    <td class=\"font-normal\">
                         {% if link %}
-                            <a href=\"{{ link }}\" title=\"{{ file }}\">{{ template }}</a>
-                            <div>
-                                <a class=\"text-muted\" href=\"{{ link }}\" title=\"{{ file }}\">
-                                    {{ file|file_relative|default(file) }}
-                                </a>
-                            </div>
+                            <a href=\"{{ link }}\" title=\"{{ file }}\" class=\"stretched-link\">
+                                {{ template }}
+                                <span class=\"template-file-path\">{{ file|file_relative|default(file) }}</span>
+                            </a>
                         {% else %}
                             {{ template }}
                         {% endif %}

@@ -48,13 +48,16 @@ final class DumpCompletionCommand extends Command
         $shell = $this->guessShell();
         [$rcFile, $completionFile] = match ($shell) {
             'fish' => ['~/.config/fish/config.fish', "/etc/fish/completions/$commandName.fish"],
+            'zsh' => ['~/.zshrc', '$fpath[1]/'.$commandName],
             default => ['~/.bashrc', "/etc/bash_completion.d/$commandName"],
         };
+
+        $supportedShells = implode(', ', $this->getSupportedShells());
 
         $this
             ->setHelp(<<<EOH
 The <info>%command.name%</> command dumps the shell completion script required
-to use shell autocompletion (currently, bash and fish completion is supported).
+to use shell autocompletion (currently, {$supportedShells} completion are supported).
 
 <comment>Static installation
 -------------------</>
@@ -113,7 +116,7 @@ EOH
             return self::INVALID;
         }
 
-        $output->write(str_replace(['{{ COMMAND_NAME }}', '{{ VERSION }}'], [$commandName, $this->getApplication()->getVersion()], file_get_contents($completionFile)));
+        $output->write(str_replace(['{{ COMMAND_NAME }}', '{{ VERSION }}'], [$commandName, CompleteCommand::COMPLETION_API_VERSION], file_get_contents($completionFile)));
 
         return self::SUCCESS;
     }

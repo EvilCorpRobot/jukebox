@@ -305,7 +305,7 @@ class __TwigTemplate_3a1c02928e47e88e0c6225bc29d10c97 extends Template
         }
         if (!$context['_iterated']) {
             // line 71
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No content was dumped.</p>
         </div>
     ";
@@ -408,7 +408,7 @@ class __TwigTemplate_3a1c02928e47e88e0c6225bc29d10c97 extends Template
             {{ dump.data|raw }}
         </div>
     {% else %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No content was dumped.</p>
         </div>
     {% endfor %}

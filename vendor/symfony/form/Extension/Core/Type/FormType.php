@@ -24,7 +24,7 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
-use Symfony\Component\Translation\TranslatableMessage;
+use Symfony\Contracts\Translation\TranslatableInterface;
 
 class FormType extends BaseType
 {
@@ -38,9 +38,6 @@ class FormType extends BaseType
         ]));
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
@@ -69,9 +66,6 @@ class FormType extends BaseType
         $builder->setIsEmptyCallback($options['is_empty_callback']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
@@ -99,7 +93,6 @@ class FormType extends BaseType
             'value' => $form->getViewData(),
             'data' => $form->getNormData(),
             'required' => $form->isRequired(),
-            'size' => null,
             'label_attr' => $options['label_attr'],
             'help' => $options['help'],
             'help_attr' => $options['help_attr'],
@@ -112,9 +105,6 @@ class FormType extends BaseType
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
         $multipart = false;
@@ -129,9 +119,6 @@ class FormType extends BaseType
         $view->vars['multipart'] = $multipart;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
@@ -209,7 +196,7 @@ class FormType extends BaseType
         $resolver->setAllowedTypes('label_attr', 'array');
         $resolver->setAllowedTypes('action', 'string');
         $resolver->setAllowedTypes('upload_max_size_message', ['callable']);
-        $resolver->setAllowedTypes('help', ['string', 'null', TranslatableMessage::class]);
+        $resolver->setAllowedTypes('help', ['string', 'null', TranslatableInterface::class]);
         $resolver->setAllowedTypes('help_attr', 'array');
         $resolver->setAllowedTypes('help_html', 'bool');
         $resolver->setAllowedTypes('is_empty_callback', ['null', 'callable']);
@@ -220,17 +207,11 @@ class FormType extends BaseType
         $resolver->setInfo('setter', 'A callable that accepts three arguments (a reference to the view data, the submitted value and the current form field).');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParent(): ?string
     {
         return null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix(): string
     {
         return 'form';

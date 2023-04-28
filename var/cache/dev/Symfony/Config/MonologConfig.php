@@ -44,10 +44,13 @@ class MonologConfig implements \Symfony\Component\Config\Builder\ConfigBuilderIn
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @example {"type":"stream","path":"\/var\/log\/symfony.log","level":"ERROR","bubble":"false","formatter":"my_formatter"}
      * @example {"type":"fingers_crossed","action_level":"WARNING","buffer_size":30,"handler":"custom"}
      * @example {"type":"service","id":"my_handler"}
      * @return \Symfony\Config\Monolog\HandlerConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig : static)
      */
     public function handler(string $name, mixed $value = []): \Symfony\Config\Monolog\HandlerConfig|static
     {

@@ -202,7 +202,7 @@ class __TwigTemplate_daba2770216fd2328e92cba943fe1f48 extends Template
         // line 49
         if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 49, $this->source); })()), "processedLogs", [], "any", false, false, false, 49))) {
             // line 50
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No log messages available.</p>
         </div>
     ";
@@ -383,15 +383,17 @@ class __TwigTemplate_daba2770216fd2328e92cba943fe1f48 extends Template
             </colgroup>
 
             <thead>
-                <th>Time</th>
-                <th>Message</th>
+                <tr>
+                    <th>Time</th>
+                    <th>Message</th>
+                </tr>
             </thead>
 
             <tbody>
                 ";
-            // line 139
+            // line 141
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 139, $this->source); })()), "processedLogs", [], "any", false, false, false, 139));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 141, $this->source); })()), "processedLogs", [], "any", false, false, false, 141));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -406,80 +408,80 @@ class __TwigTemplate_daba2770216fd2328e92cba943fe1f48 extends Template
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["log"]) {
-                // line 140
+                // line 142
                 echo "                    ";
-                $context["css_class"] = ((("error" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 140))) ? ("error") : (((((twig_get_attribute($this->env, $this->source,                 // line 141
-$context["log"], "priorityName", [], "any", false, false, false, 141) == "WARNING") || ("deprecation" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 141)))) ? ("warning") : (((("silenced" == twig_get_attribute($this->env, $this->source,                 // line 142
-$context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") : (""))))));
-                // line 144
+                $context["css_class"] = ((("error" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 142))) ? ("error") : (((((twig_get_attribute($this->env, $this->source,                 // line 143
+$context["log"], "priorityName", [], "any", false, false, false, 143) == "WARNING") || ("deprecation" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 143)))) ? ("warning") : (((("silenced" == twig_get_attribute($this->env, $this->source,                 // line 144
+$context["log"], "type", [], "any", false, false, false, 144))) ? ("silenced") : (""))))));
+                // line 146
                 echo "                    <tr class=\"log-status-";
-                echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 144, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 146, $this->source); })()), "html", null, true);
                 echo "\" data-type=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 144), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 146), "html", null, true);
                 echo "\" data-priority=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priority", [], "any", false, false, false, 144), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priority", [], "any", false, false, false, 146), "html", null, true);
                 echo "\" data-channel=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "channel", [], "any", false, false, false, 144), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "channel", [], "any", false, false, false, 146), "html", null, true);
                 echo "\" style=\"";
-                echo (((("event" == twig_get_attribute($this->env, $this->source, $context["log"], "channel", [], "any", false, false, false, 144)) || ("DEBUG" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 144)))) ? ("display: none") : (""));
+                echo (((("event" == twig_get_attribute($this->env, $this->source, $context["log"], "channel", [], "any", false, false, false, 146)) || ("DEBUG" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 146)))) ? ("display: none") : (""));
                 echo "\">
                         <td class=\"log-timestamp\">
                             <time title=\"";
-                // line 146
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 146), "r"), "html", null, true);
+                // line 148
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 148), "r"), "html", null, true);
                 echo "\" datetime=\"";
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 146), "c"), "html", null, true);
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 148), "c"), "html", null, true);
                 echo "\">
                                 ";
-                // line 147
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 147), "H:i:s.v"), "html", null, true);
+                // line 149
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "timestamp", [], "any", false, false, false, 149), "H:i:s.v"), "html", null, true);
                 echo "
                             </time>
 
                             ";
-                // line 150
-                if ((twig_in_filter(twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 150), [0 => "error", 1 => "deprecation", 2 => "silenced"]) || ("WARNING" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 150)))) {
-                    // line 151
+                // line 152
+                if ((twig_in_filter(twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 152), [0 => "error", 1 => "deprecation", 2 => "silenced"]) || ("WARNING" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 152)))) {
+                    // line 153
                     echo "                                <span class=\"log-type-badge badge badge-";
-                    echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 151, $this->source); })()), "html", null, true);
+                    echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 153, $this->source); })()), "html", null, true);
                     echo "\">
                                     ";
-                    // line 152
-                    if ((("error" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 152)) || ("WARNING" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 152)))) {
-                        // line 153
+                    // line 154
+                    if ((("error" == twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 154)) || ("WARNING" == twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 154)))) {
+                        // line 155
                         echo "                                        ";
-                        echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 153)), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 155)), "html", null, true);
                         echo "
                                     ";
                     } else {
-                        // line 155
+                        // line 157
                         echo "                                        ";
-                        echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 155)), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "type", [], "any", false, false, false, 157)), "html", null, true);
                         echo "
                                     ";
                     }
-                    // line 157
+                    // line 159
                     echo "                                </span>
                             ";
                 } else {
-                    // line 159
+                    // line 161
                     echo "                                <span class=\"log-type-badge badge badge-";
-                    echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 159, $this->source); })()), "html", null, true);
+                    echo twig_escape_filter($this->env, (isset($context["css_class"]) || array_key_exists("css_class", $context) ? $context["css_class"] : (function () { throw new RuntimeError('Variable "css_class" does not exist.', 161, $this->source); })()), "html", null, true);
                     echo "\">
                                     ";
-                    // line 160
-                    echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 160)), "html", null, true);
+                    // line 162
+                    echo twig_escape_filter($this->env, twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "priorityName", [], "any", false, false, false, 162)), "html", null, true);
                     echo "
                                 </span>
                             ";
                 }
-                // line 163
+                // line 165
                 echo "                        </td>
 
                         <td class=\"font-normal\">
                             ";
-                // line 166
-                echo twig_call_macro($macros["helper"], "macro_render_log_message", ["debug", twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 166), $context["log"]], 166, $context, $this->getSourceContext());
+                // line 168
+                echo twig_call_macro($macros["helper"], "macro_render_log_message", ["debug", twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 168), $context["log"]], 168, $context, $this->getSourceContext());
                 echo "
                         </td>
                     </tr>
@@ -496,7 +498,7 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['log'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 170
+            // line 172
             echo "            </tbody>
         </table>
 
@@ -507,46 +509,46 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
         <script>Sfjs.initializeLogsTable();</script>
     ";
         }
-        // line 179
+        // line 181
         echo "
     ";
-        // line 180
+        // line 182
         $context["compilerLogTotal"] = 0;
-        // line 181
+        // line 183
         echo "    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 181, $this->source); })()), "compilerLogs", [], "any", false, false, false, 181));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 183, $this->source); })()), "compilerLogs", [], "any", false, false, false, 183));
         foreach ($context['_seq'] as $context["_key"] => $context["logs"]) {
-            // line 182
+            // line 184
             echo "        ";
-            $context["compilerLogTotal"] = ((isset($context["compilerLogTotal"]) || array_key_exists("compilerLogTotal", $context) ? $context["compilerLogTotal"] : (function () { throw new RuntimeError('Variable "compilerLogTotal" does not exist.', 182, $this->source); })()) + twig_length_filter($this->env, $context["logs"]));
-            // line 183
+            $context["compilerLogTotal"] = ((isset($context["compilerLogTotal"]) || array_key_exists("compilerLogTotal", $context) ? $context["compilerLogTotal"] : (function () { throw new RuntimeError('Variable "compilerLogTotal" does not exist.', 184, $this->source); })()) + twig_length_filter($this->env, $context["logs"]));
+            // line 185
             echo "    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['logs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 184
+        // line 186
         echo "
     <details class=\"container-compilation-logs\">
         <summary>
             <h4>Container Compilation Logs <span class=\"text-muted\">(";
-        // line 187
-        echo twig_escape_filter($this->env, (isset($context["compilerLogTotal"]) || array_key_exists("compilerLogTotal", $context) ? $context["compilerLogTotal"] : (function () { throw new RuntimeError('Variable "compilerLogTotal" does not exist.', 187, $this->source); })()), "html", null, true);
+        // line 189
+        echo twig_escape_filter($this->env, (isset($context["compilerLogTotal"]) || array_key_exists("compilerLogTotal", $context) ? $context["compilerLogTotal"] : (function () { throw new RuntimeError('Variable "compilerLogTotal" does not exist.', 189, $this->source); })()), "html", null, true);
         echo ")</span></h4>
-            <p class=\"text-muted\">Log messages generated during the compilation of the service container.</p>
+            <span class=\"text-muted\">Log messages generated during the compilation of the service container.</span>
         </summary>
 
         ";
-        // line 191
-        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 191, $this->source); })()), "compilerLogs", [], "any", false, false, false, 191))) {
-            // line 192
+        // line 193
+        if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 193, $this->source); })()), "compilerLogs", [], "any", false, false, false, 193))) {
+            // line 194
             echo "            <div class=\"empty\">
                 <p>There are no compiler log messages.</p>
             </div>
         ";
         } else {
-            // line 196
+            // line 198
             echo "            <table class=\"container-logs\">
                 <thead>
                 <tr>
@@ -557,9 +559,9 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
 
                 <tbody>
                 ";
-            // line 205
+            // line 207
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 205, $this->source); })()), "compilerLogs", [], "any", false, false, false, 205));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 207, $this->source); })()), "compilerLogs", [], "any", false, false, false, 207));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -574,21 +576,21 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["class"] => $context["logs"]) {
-                // line 206
+                // line 208
                 echo "                    <tr>
                         <td class=\"font-normal text-right\">";
-                // line 207
+                // line 209
                 echo twig_escape_filter($this->env, twig_length_filter($this->env, $context["logs"]), "html", null, true);
                 echo "</td>
                         <td class=\"font-normal\">
                             ";
-                // line 209
-                $context["context_id"] = ("context-compiler-" . twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 209));
-                // line 210
+                // line 211
+                $context["context_id"] = ("context-compiler-" . twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 211));
+                // line 212
                 echo "
                             <button type=\"button\" class=\"btn btn-link sf-toggle\" data-toggle-selector=\"#";
-                // line 211
-                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 211, $this->source); })()), "html", null, true);
+                // line 213
+                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 213, $this->source); })()), "html", null, true);
                 echo "\" data-toggle-alt-content=\"";
                 echo twig_escape_filter($this->env, $context["class"], "html", null, true);
                 echo "\">";
@@ -596,25 +598,25 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
                 echo "</button>
 
                             <div id=\"";
-                // line 213
-                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 213, $this->source); })()), "html", null, true);
+                // line 215
+                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 215, $this->source); })()), "html", null, true);
                 echo "\" class=\"context sf-toggle-content sf-toggle-hidden\">
                                 <ul class=\"break-long-words\">
                                     ";
-                // line 215
+                // line 217
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable($context["logs"]);
                 foreach ($context['_seq'] as $context["_key"] => $context["log"]) {
-                    // line 216
+                    // line 218
                     echo "                                        <li>";
-                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "message", [], "any", false, false, false, 216));
+                    echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, $context["log"], "message", [], "any", false, false, false, 218));
                     echo "</li>
                                     ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['log'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 218
+                // line 220
                 echo "                                </ul>
                             </div>
                         </td>
@@ -632,12 +634,12 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['class'], $context['logs'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 223
+            // line 225
             echo "                </tbody>
             </table>
         ";
         }
-        // line 226
+        // line 228
         echo "    </details>
 ";
         
@@ -648,7 +650,7 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
 
     }
 
-    // line 229
+    // line 231
     public function macro_render_log_message($__category__ = null, $__log_index__ = null, $__log__ = null, ...$__varargs__)
     {
         $macros = $this->macros;
@@ -669,113 +671,113 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
             $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "render_log_message"));
 
-            // line 230
-            echo "    ";
-            $context["has_context"] = (twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "context", [], "any", true, true, false, 230) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 230, $this->source); })()), "context", [], "any", false, false, false, 230)));
-            // line 231
-            echo "    ";
-            $context["has_trace"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "context", [], "any", false, true, false, 231), "exception", [], "any", false, true, false, 231), "trace", [], "any", true, true, false, 231);
             // line 232
+            echo "    ";
+            $context["has_context"] = (twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "context", [], "any", true, true, false, 232) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 232, $this->source); })()), "context", [], "any", false, false, false, 232)));
+            // line 233
+            echo "    ";
+            $context["has_trace"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "context", [], "any", false, true, false, 233), "exception", [], "any", false, true, false, 233), "trace", [], "any", true, true, false, 233);
+            // line 234
             echo "
     ";
-            // line 233
-            if ( !(isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 233, $this->source); })())) {
-                // line 234
+            // line 235
+            if ( !(isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 235, $this->source); })())) {
+                // line 236
                 echo "        ";
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 234, $this->source); })()), "message", [], "any", false, false, false, 234));
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 236, $this->source); })()), "message", [], "any", false, false, false, 236));
                 echo "
     ";
             } else {
-                // line 236
+                // line 238
                 echo "        ";
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 236, $this->source); })()), "message", [], "any", false, false, false, 236), twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 236, $this->source); })()), "context", [], "any", false, false, false, 236));
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpLog($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 238, $this->source); })()), "message", [], "any", false, false, false, 238), twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 238, $this->source); })()), "context", [], "any", false, false, false, 238));
                 echo "
     ";
             }
-            // line 238
+            // line 240
             echo "
     <div class=\"log-metadata\">
         ";
-            // line 240
-            if (twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 240, $this->source); })()), "channel", [], "any", false, false, false, 240)) {
-                // line 241
+            // line 242
+            if (twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 242, $this->source); })()), "channel", [], "any", false, false, false, 242)) {
+                // line 243
                 echo "            <span class=\"badge\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 241, $this->source); })()), "channel", [], "any", false, false, false, 241), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 243, $this->source); })()), "channel", [], "any", false, false, false, 243), "html", null, true);
                 echo "</span>
         ";
             }
-            // line 243
+            // line 245
             echo "
         ";
-            // line 244
-            if ((twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "errorCount", [], "any", true, true, false, 244) && (twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 244, $this->source); })()), "errorCount", [], "any", false, false, false, 244) > 1))) {
-                // line 245
+            // line 246
+            if ((twig_get_attribute($this->env, $this->source, ($context["log"] ?? null), "errorCount", [], "any", true, true, false, 246) && (twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 246, $this->source); })()), "errorCount", [], "any", false, false, false, 246) > 1))) {
+                // line 247
                 echo "            <span class=\"log-num-occurrences\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 245, $this->source); })()), "errorCount", [], "any", false, false, false, 245), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 247, $this->source); })()), "errorCount", [], "any", false, false, false, 247), "html", null, true);
                 echo " times</span>
         ";
             }
-            // line 247
+            // line 249
             echo "
         ";
-            // line 248
-            if ((isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 248, $this->source); })())) {
-                // line 249
+            // line 250
+            if ((isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 250, $this->source); })())) {
+                // line 251
                 echo "            ";
-                $context["context_id"] = ((("context-" . (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 249, $this->source); })())) . "-") . (isset($context["log_index"]) || array_key_exists("log_index", $context) ? $context["log_index"] : (function () { throw new RuntimeError('Variable "log_index" does not exist.', 249, $this->source); })()));
-                // line 250
+                $context["context_id"] = ((("context-" . (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 251, $this->source); })())) . "-") . (isset($context["log_index"]) || array_key_exists("log_index", $context) ? $context["log_index"] : (function () { throw new RuntimeError('Variable "log_index" does not exist.', 251, $this->source); })()));
+                // line 252
                 echo "            <span><button type=\"button\" class=\"btn btn-link text-small sf-toggle\" data-toggle-selector=\"#";
-                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 250, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 252, $this->source); })()), "html", null, true);
                 echo "\" data-toggle-alt-content=\"Hide context\">Show context</button></span>
         ";
             }
-            // line 252
+            // line 254
             echo "
         ";
-            // line 253
-            if ((isset($context["has_trace"]) || array_key_exists("has_trace", $context) ? $context["has_trace"] : (function () { throw new RuntimeError('Variable "has_trace" does not exist.', 253, $this->source); })())) {
-                // line 254
+            // line 255
+            if ((isset($context["has_trace"]) || array_key_exists("has_trace", $context) ? $context["has_trace"] : (function () { throw new RuntimeError('Variable "has_trace" does not exist.', 255, $this->source); })())) {
+                // line 256
                 echo "            ";
-                $context["trace_id"] = ((("trace-" . (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 254, $this->source); })())) . "-") . (isset($context["log_index"]) || array_key_exists("log_index", $context) ? $context["log_index"] : (function () { throw new RuntimeError('Variable "log_index" does not exist.', 254, $this->source); })()));
-                // line 255
+                $context["trace_id"] = ((("trace-" . (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 256, $this->source); })())) . "-") . (isset($context["log_index"]) || array_key_exists("log_index", $context) ? $context["log_index"] : (function () { throw new RuntimeError('Variable "log_index" does not exist.', 256, $this->source); })()));
+                // line 257
                 echo "            <span><button type=\"button\" class=\"btn btn-link text-small sf-toggle\" data-toggle-selector=\"#";
-                echo twig_escape_filter($this->env, (isset($context["trace_id"]) || array_key_exists("trace_id", $context) ? $context["trace_id"] : (function () { throw new RuntimeError('Variable "trace_id" does not exist.', 255, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["trace_id"]) || array_key_exists("trace_id", $context) ? $context["trace_id"] : (function () { throw new RuntimeError('Variable "trace_id" does not exist.', 257, $this->source); })()), "html", null, true);
                 echo "\" data-toggle-alt-content=\"Hide trace\">Show trace</button></span>
         ";
             }
-            // line 257
+            // line 259
             echo "
         ";
-            // line 258
-            if ((isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 258, $this->source); })())) {
-                // line 259
+            // line 260
+            if ((isset($context["has_context"]) || array_key_exists("has_context", $context) ? $context["has_context"] : (function () { throw new RuntimeError('Variable "has_context" does not exist.', 260, $this->source); })())) {
+                // line 261
                 echo "            <div id=\"";
-                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 259, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["context_id"]) || array_key_exists("context_id", $context) ? $context["context_id"] : (function () { throw new RuntimeError('Variable "context_id" does not exist.', 261, $this->source); })()), "html", null, true);
                 echo "\" class=\"context sf-toggle-content sf-toggle-hidden\">
                 ";
-                // line 260
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 260, $this->source); })()), "context", [], "any", false, false, false, 260), 1);
+                // line 262
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 262, $this->source); })()), "context", [], "any", false, false, false, 262), 1);
                 echo "
             </div>
         ";
             }
-            // line 263
+            // line 265
             echo "
         ";
-            // line 264
-            if ((isset($context["has_trace"]) || array_key_exists("has_trace", $context) ? $context["has_trace"] : (function () { throw new RuntimeError('Variable "has_trace" does not exist.', 264, $this->source); })())) {
-                // line 265
+            // line 266
+            if ((isset($context["has_trace"]) || array_key_exists("has_trace", $context) ? $context["has_trace"] : (function () { throw new RuntimeError('Variable "has_trace" does not exist.', 266, $this->source); })())) {
+                // line 267
                 echo "            <div id=\"";
-                echo twig_escape_filter($this->env, (isset($context["trace_id"]) || array_key_exists("trace_id", $context) ? $context["trace_id"] : (function () { throw new RuntimeError('Variable "trace_id" does not exist.', 265, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["trace_id"]) || array_key_exists("trace_id", $context) ? $context["trace_id"] : (function () { throw new RuntimeError('Variable "trace_id" does not exist.', 267, $this->source); })()), "html", null, true);
                 echo "\" class=\"context sf-toggle-content sf-toggle-hidden\">
                 ";
-                // line 266
-                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 266, $this->source); })()), "context", [], "any", false, false, false, 266), "exception", [], "any", false, false, false, 266), "trace", [], "any", false, false, false, 266), 1);
+                // line 268
+                echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["log"]) || array_key_exists("log", $context) ? $context["log"] : (function () { throw new RuntimeError('Variable "log" does not exist.', 268, $this->source); })()), "context", [], "any", false, false, false, 268), "exception", [], "any", false, false, false, 268), "trace", [], "any", false, false, false, 268), 1);
                 echo "
             </div>
         ";
             }
-            // line 269
+            // line 271
             echo "    </div>
 ";
             
@@ -803,7 +805,7 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
 
     public function getDebugInfo()
     {
-        return array (  779 => 269,  773 => 266,  768 => 265,  766 => 264,  763 => 263,  757 => 260,  752 => 259,  750 => 258,  747 => 257,  741 => 255,  738 => 254,  736 => 253,  733 => 252,  727 => 250,  724 => 249,  722 => 248,  719 => 247,  713 => 245,  711 => 244,  708 => 243,  702 => 241,  700 => 240,  696 => 238,  690 => 236,  684 => 234,  682 => 233,  679 => 232,  676 => 231,  673 => 230,  652 => 229,  641 => 226,  636 => 223,  618 => 218,  609 => 216,  605 => 215,  600 => 213,  591 => 211,  588 => 210,  586 => 209,  581 => 207,  578 => 206,  561 => 205,  550 => 196,  544 => 192,  542 => 191,  535 => 187,  530 => 184,  524 => 183,  521 => 182,  516 => 181,  514 => 180,  511 => 179,  500 => 170,  482 => 166,  477 => 163,  471 => 160,  466 => 159,  462 => 157,  456 => 155,  450 => 153,  448 => 152,  443 => 151,  441 => 150,  435 => 147,  429 => 146,  415 => 144,  413 => 142,  412 => 141,  410 => 140,  393 => 139,  375 => 123,  364 => 120,  354 => 119,  351 => 118,  347 => 117,  335 => 108,  331 => 107,  324 => 102,  313 => 99,  303 => 98,  300 => 97,  296 => 96,  284 => 87,  280 => 86,  267 => 78,  261 => 75,  257 => 74,  248 => 70,  242 => 67,  238 => 66,  231 => 62,  227 => 61,  222 => 58,  220 => 57,  217 => 56,  214 => 55,  211 => 54,  205 => 50,  203 => 49,  199 => 47,  189 => 46,  178 => 43,  172 => 40,  169 => 39,  167 => 38,  162 => 36,  155 => 35,  145 => 34,  132 => 30,  129 => 29,  121 => 26,  111 => 21,  101 => 16,  97 => 14,  95 => 13,  92 => 12,  87 => 10,  82 => 9,  79 => 8,  76 => 7,  73 => 6,  63 => 5,  52 => 1,  50 => 3,  37 => 1,);
+        return array (  781 => 271,  775 => 268,  770 => 267,  768 => 266,  765 => 265,  759 => 262,  754 => 261,  752 => 260,  749 => 259,  743 => 257,  740 => 256,  738 => 255,  735 => 254,  729 => 252,  726 => 251,  724 => 250,  721 => 249,  715 => 247,  713 => 246,  710 => 245,  704 => 243,  702 => 242,  698 => 240,  692 => 238,  686 => 236,  684 => 235,  681 => 234,  678 => 233,  675 => 232,  654 => 231,  643 => 228,  638 => 225,  620 => 220,  611 => 218,  607 => 217,  602 => 215,  593 => 213,  590 => 212,  588 => 211,  583 => 209,  580 => 208,  563 => 207,  552 => 198,  546 => 194,  544 => 193,  537 => 189,  532 => 186,  526 => 185,  523 => 184,  518 => 183,  516 => 182,  513 => 181,  502 => 172,  484 => 168,  479 => 165,  473 => 162,  468 => 161,  464 => 159,  458 => 157,  452 => 155,  450 => 154,  445 => 153,  443 => 152,  437 => 149,  431 => 148,  417 => 146,  415 => 144,  414 => 143,  412 => 142,  395 => 141,  375 => 123,  364 => 120,  354 => 119,  351 => 118,  347 => 117,  335 => 108,  331 => 107,  324 => 102,  313 => 99,  303 => 98,  300 => 97,  296 => 96,  284 => 87,  280 => 86,  267 => 78,  261 => 75,  257 => 74,  248 => 70,  242 => 67,  238 => 66,  231 => 62,  227 => 61,  222 => 58,  220 => 57,  217 => 56,  214 => 55,  211 => 54,  205 => 50,  203 => 49,  199 => 47,  189 => 46,  178 => 43,  172 => 40,  169 => 39,  167 => 38,  162 => 36,  155 => 35,  145 => 34,  132 => 30,  129 => 29,  121 => 26,  111 => 21,  101 => 16,  97 => 14,  95 => 13,  92 => 12,  87 => 10,  82 => 9,  79 => 8,  76 => 7,  73 => 6,  63 => 5,  52 => 1,  50 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -857,7 +859,7 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
     <h2>Log Messages</h2>
 
     {% if collector.processedLogs is empty %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No log messages available.</p>
         </div>
     {% else %}
@@ -941,8 +943,10 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
             </colgroup>
 
             <thead>
-                <th>Time</th>
-                <th>Message</th>
+                <tr>
+                    <th>Time</th>
+                    <th>Message</th>
+                </tr>
             </thead>
 
             <tbody>
@@ -995,7 +999,7 @@ $context["log"], "type", [], "any", false, false, false, 142))) ? ("silenced") :
     <details class=\"container-compilation-logs\">
         <summary>
             <h4>Container Compilation Logs <span class=\"text-muted\">({{ compilerLogTotal }})</span></h4>
-            <p class=\"text-muted\">Log messages generated during the compilation of the service container.</p>
+            <span class=\"text-muted\">Log messages generated during the compilation of the service container.</span>
         </summary>
 
         {% if collector.compilerLogs is empty %}

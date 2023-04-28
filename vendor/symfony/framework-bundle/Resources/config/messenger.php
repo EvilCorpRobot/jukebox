@@ -55,6 +55,7 @@ return static function (ContainerConfigurator $container) {
                 abstract_arg('senders service locator'),
             ])
         ->set('messenger.middleware.send_message', SendMessageMiddleware::class)
+            ->abstract()
             ->args([
                 service('messenger.senders_locator'),
                 service('event_dispatcher'),
@@ -140,6 +141,7 @@ return static function (ContainerConfigurator $container) {
             ->args([
                 service('logger')->ignoreOnInvalid(),
             ])
+            ->tag('monolog.logger', ['channel' => 'messenger'])
 
         ->set('messenger.transport.beanstalkd.factory', BeanstalkdTransportFactory::class)
 
@@ -158,6 +160,11 @@ return static function (ContainerConfigurator $container) {
                 abstract_arg('multiplier'),
                 abstract_arg('max delay ms'),
             ])
+
+        // rate limiter
+        ->set('messenger.rate_limiter_locator', ServiceLocator::class)
+            ->args([[]])
+            ->tag('container.service_locator')
 
         // worker event listener
         ->set('messenger.retry.send_failed_message_for_retry_listener', SendFailedMessageForRetryListener::class)
@@ -197,6 +204,7 @@ return static function (ContainerConfigurator $container) {
                 service('logger')->ignoreOnInvalid(),
             ])
             ->tag('kernel.event_subscriber')
+            ->tag('monolog.logger', ['channel' => 'messenger'])
 
         ->set('messenger.listener.stop_worker_on_stop_exception_listener', StopWorkerOnCustomStopExceptionListener::class)
             ->tag('kernel.event_subscriber')

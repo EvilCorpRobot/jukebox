@@ -102,7 +102,7 @@ class __TwigTemplate_961fa8cd26ed6976bdcccd825cdf10f3 extends Template
         // line 15
         if (twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 15, $this->source); })()), "calledlisteners", [], "any", false, false, false, 15))) {
             // line 16
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No events have been recorded. Check that debugging is enabled in the kernel.</p>
         </div>
     ";
@@ -378,7 +378,7 @@ class __TwigTemplate_961fa8cd26ed6976bdcccd825cdf10f3 extends Template
     <h2>Event Dispatcher</h2>
 
     {% if collector.calledlisteners is empty %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No events have been recorded. Check that debugging is enabled in the kernel.</p>
         </div>
     {% else %}

@@ -183,7 +183,7 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
         // line 40
         if ((twig_get_attribute($this->env, $this->source, (isset($context["collector"]) || array_key_exists("collector", $context) ? $context["collector"] : (function () { throw new RuntimeError('Variable "collector" does not exist.', 40, $this->source); })()), "requestCount", [], "any", false, false, false, 40) == 0)) {
             // line 41
-            echo "        <div class=\"empty\">
+            echo "        <div class=\"empty empty-panel\">
             <p>No HTTP requests were made.</p>
         </div>
     ";
@@ -284,11 +284,11 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                             echo "                                ";
                         }
                         // line 80
-                        echo "                                <table>
+                        echo "                                <table class=\"sf-profiler-httpclient-requests\">
                                     <thead>
                                     <tr>
                                         <th>
-                                            <span class=\"label\">";
+                                            <span class=\"http-method\">";
                         // line 84
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "method", [], "any", false, false, false, 84), "html", null, true);
                         echo "</span>
@@ -298,101 +298,105 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                         // line 87
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "url", [], "any", false, false, false, 87), "html", null, true);
                         echo "
-                                            ";
-                        // line 88
-                        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, $context["trace"], "options", [], "any", false, false, false, 88))) {
-                            // line 89
-                            echo "                                                ";
-                            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "options", [], "any", false, false, false, 89), 1);
-                            echo "
-                                            ";
-                        }
-                        // line 91
-                        echo "                                        </th>
+                                        </th>
                                         ";
-                        // line 92
-                        if (((isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 92, $this->source); })()) && (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 92, $this->source); })()))) {
-                            // line 93
+                        // line 89
+                        if (((isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 89, $this->source); })()) && (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 89, $this->source); })()))) {
+                            // line 90
                             echo "                                            <th>
                                                 Profile
                                             </th>
                                         ";
                         }
-                        // line 97
+                        // line 94
                         echo "                                        ";
-                        if ( !(null === twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 97))) {
-                            // line 98
+                        if ( !(null === twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 94))) {
+                            // line 95
                             echo "                                            <th>
-                                                <button class=\"btn btn-sm hidden label\" title=\"Copy as curl\" data-clipboard-text=\"";
-                            // line 99
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 99), "html", null, true);
-                            echo "\">curl</button>
+                                                <button class=\"btn btn-sm hidden\" title=\"Copy as cURL\" data-clipboard-text=\"";
+                            // line 96
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 96), "html", null, true);
+                            echo "\">Copy as cURL</button>
                                             </th>
                                         ";
                         }
-                        // line 102
+                        // line 99
                         echo "                                    </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th>
-                                            ";
-                        // line 107
-                        if ((twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 107) >= 500)) {
-                            // line 108
-                            echo "                                                ";
-                            $context["responseStatus"] = "error";
-                            // line 109
-                            echo "                                            ";
-                        } elseif ((twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 109) >= 400)) {
-                            // line 110
-                            echo "                                                ";
-                            $context["responseStatus"] = "warning";
-                            // line 111
-                            echo "                                            ";
-                        } else {
-                            // line 112
-                            echo "                                                ";
-                            $context["responseStatus"] = "success";
-                            // line 113
-                            echo "                                            ";
+                                    ";
+                        // line 102
+                        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, $context["trace"], "options", [], "any", false, false, false, 102))) {
+                            // line 103
+                            echo "                                        <tr>
+                                            <th class=\"font-normal\">Request options</th>
+                                            <td>";
+                            // line 105
+                            echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "options", [], "any", false, false, false, 105), 1);
+                            echo "</td>
+                                        </tr>
+                                    ";
                         }
-                        // line 114
-                        echo "                                            <span class=\"label status-";
-                        echo twig_escape_filter($this->env, (isset($context["responseStatus"]) || array_key_exists("responseStatus", $context) ? $context["responseStatus"] : (function () { throw new RuntimeError('Variable "responseStatus" does not exist.', 114, $this->source); })()), "html", null, true);
-                        echo "\">
-                                                ";
-                        // line 115
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 115), "html", null, true);
-                        echo "
-                                            </span>
-                                        </th>
+                        // line 108
+                        echo "                                    <tr>
+                                        <th class=\"font-normal\">Response</th>
                                         <td";
-                        // line 118
-                        if (twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 118)) {
+                        // line 110
+                        if (twig_get_attribute($this->env, $this->source, $context["trace"], "curlCommand", [], "any", false, false, false, 110)) {
                             echo " colspan=\"2\"";
                         }
                         echo ">
                                             ";
+                        // line 111
+                        if ((twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 111) >= 500)) {
+                            // line 112
+                            echo "                                                ";
+                            $context["responseStatus"] = "error";
+                            // line 113
+                            echo "                                            ";
+                        } elseif ((twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 113) >= 400)) {
+                            // line 114
+                            echo "                                                ";
+                            $context["responseStatus"] = "warning";
+                            // line 115
+                            echo "                                            ";
+                        } else {
+                            // line 116
+                            echo "                                                ";
+                            $context["responseStatus"] = "success";
+                            // line 117
+                            echo "                                            ";
+                        }
+                        // line 118
+                        echo "                                            <span class=\"font-normal status-response-status-code status-";
+                        echo twig_escape_filter($this->env, (isset($context["responseStatus"]) || array_key_exists("responseStatus", $context) ? $context["responseStatus"] : (function () { throw new RuntimeError('Variable "responseStatus" does not exist.', 118, $this->source); })()), "html", null, true);
+                        echo "\">
+                                                ";
                         // line 119
-                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "info", [], "any", false, false, false, 119), 1);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "http_code", [], "any", false, false, false, 119), "html", null, true);
+                        echo "
+                                            </span>
+
+                                            ";
+                        // line 122
+                        echo $this->extensions['Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension']->dumpData($this->env, twig_get_attribute($this->env, $this->source, $context["trace"], "info", [], "any", false, false, false, 122), 1);
                         echo "
                                         </td>
                                         ";
-                        // line 121
-                        if (((isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 121, $this->source); })()) && (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 121, $this->source); })()))) {
-                            // line 122
+                        // line 124
+                        if (((isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 124, $this->source); })()) && (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 124, $this->source); })()))) {
+                            // line 125
                             echo "                                            <td>
                                                 <span><a href=\"";
-                            // line 123
-                            echo twig_escape_filter($this->env, (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 123, $this->source); })()), "html", null, true);
+                            // line 126
+                            echo twig_escape_filter($this->env, (isset($context["profiler_link"]) || array_key_exists("profiler_link", $context) ? $context["profiler_link"] : (function () { throw new RuntimeError('Variable "profiler_link" does not exist.', 126, $this->source); })()), "html", null, true);
                             echo "\" target=\"_blank\">";
-                            echo twig_escape_filter($this->env, (isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 123, $this->source); })()), "html", null, true);
+                            echo twig_escape_filter($this->env, (isset($context["profiler_token"]) || array_key_exists("profiler_token", $context) ? $context["profiler_token"] : (function () { throw new RuntimeError('Variable "profiler_token" does not exist.', 126, $this->source); })()), "html", null, true);
                             echo "</a></span>
                                             </td>
                                         ";
                         }
-                        // line 126
+                        // line 129
                         echo "                                    </tr>
                                     </tbody>
                                 </table>
@@ -401,10 +405,10 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trace'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 130
+                    // line 133
                     echo "                        ";
                 }
-                // line 131
+                // line 134
                 echo "                    </div>
                 </div>
             ";
@@ -412,10 +416,10 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['name'], $context['client'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 134
+            // line 137
             echo "        ";
         }
-        // line 135
+        // line 138
         echo "    </div>
 ";
         
@@ -438,7 +442,7 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
 
     public function getDebugInfo()
     {
-        return array (  419 => 135,  416 => 134,  408 => 131,  405 => 130,  396 => 126,  388 => 123,  385 => 122,  383 => 121,  378 => 119,  372 => 118,  366 => 115,  361 => 114,  358 => 113,  355 => 112,  352 => 111,  349 => 110,  346 => 109,  343 => 108,  341 => 107,  334 => 102,  328 => 99,  325 => 98,  322 => 97,  316 => 93,  314 => 92,  311 => 91,  305 => 89,  303 => 88,  299 => 87,  293 => 84,  287 => 80,  284 => 79,  278 => 78,  275 => 77,  272 => 76,  269 => 75,  266 => 74,  263 => 73,  260 => 72,  255 => 71,  252 => 70,  249 => 69,  246 => 68,  242 => 67,  239 => 66,  233 => 63,  230 => 62,  228 => 61,  221 => 59,  216 => 58,  212 => 57,  203 => 51,  196 => 47,  192 => 45,  186 => 41,  184 => 40,  181 => 39,  171 => 38,  160 => 35,  154 => 32,  151 => 31,  149 => 30,  144 => 28,  139 => 27,  129 => 26,  116 => 22,  113 => 21,  105 => 18,  98 => 14,  94 => 12,  92 => 11,  89 => 10,  83 => 8,  81 => 7,  76 => 6,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  423 => 138,  420 => 137,  412 => 134,  409 => 133,  400 => 129,  392 => 126,  389 => 125,  387 => 124,  382 => 122,  376 => 119,  371 => 118,  368 => 117,  365 => 116,  362 => 115,  359 => 114,  356 => 113,  353 => 112,  351 => 111,  345 => 110,  341 => 108,  335 => 105,  331 => 103,  329 => 102,  324 => 99,  318 => 96,  315 => 95,  312 => 94,  306 => 90,  304 => 89,  299 => 87,  293 => 84,  287 => 80,  284 => 79,  278 => 78,  275 => 77,  272 => 76,  269 => 75,  266 => 74,  263 => 73,  260 => 72,  255 => 71,  252 => 70,  249 => 69,  246 => 68,  242 => 67,  239 => 66,  233 => 63,  230 => 62,  228 => 61,  221 => 59,  216 => 58,  212 => 57,  203 => 51,  196 => 47,  192 => 45,  186 => 41,  184 => 40,  181 => 39,  171 => 38,  160 => 35,  154 => 32,  151 => 31,  149 => 30,  144 => 28,  139 => 27,  129 => 26,  116 => 22,  113 => 21,  105 => 18,  98 => 14,  94 => 12,  92 => 11,  89 => 10,  83 => 8,  81 => 7,  76 => 6,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -483,7 +487,7 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
 {% block panel %}
     <h2>HTTP Client</h2>
     {% if collector.requestCount == 0 %}
-        <div class=\"empty\">
+        <div class=\"empty empty-panel\">
             <p>No HTTP requests were made.</p>
         </div>
     {% else %}
@@ -522,17 +526,14 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                                         {% endif %}
                                     {% endfor %}
                                 {% endif %}
-                                <table>
+                                <table class=\"sf-profiler-httpclient-requests\">
                                     <thead>
                                     <tr>
                                         <th>
-                                            <span class=\"label\">{{ trace.method }}</span>
+                                            <span class=\"http-method\">{{ trace.method }}</span>
                                         </th>
                                         <th class=\"full-width\">
                                             {{ trace.url }}
-                                            {% if trace.options is not empty %}
-                                                {{ profiler_dump(trace.options, maxDepth=1) }}
-                                            {% endif %}
                                         </th>
                                         {% if profiler_token and profiler_link %}
                                             <th>
@@ -541,14 +542,21 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                                         {% endif %}
                                         {% if trace.curlCommand is not null %}
                                             <th>
-                                                <button class=\"btn btn-sm hidden label\" title=\"Copy as curl\" data-clipboard-text=\"{{ trace.curlCommand }}\">curl</button>
+                                                <button class=\"btn btn-sm hidden\" title=\"Copy as cURL\" data-clipboard-text=\"{{ trace.curlCommand }}\">Copy as cURL</button>
                                             </th>
                                         {% endif %}
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% if trace.options is not empty %}
+                                        <tr>
+                                            <th class=\"font-normal\">Request options</th>
+                                            <td>{{ profiler_dump(trace.options, maxDepth=1) }}</td>
+                                        </tr>
+                                    {% endif %}
                                     <tr>
-                                        <th>
+                                        <th class=\"font-normal\">Response</th>
+                                        <td{% if trace.curlCommand %} colspan=\"2\"{% endif %}>
                                             {% if trace.http_code >= 500 %}
                                                 {% set responseStatus = 'error' %}
                                             {% elseif trace.http_code >= 400 %}
@@ -556,11 +564,10 @@ class __TwigTemplate_afb2de40d38544ecde6525790da624fa extends Template
                                             {% else %}
                                                 {% set responseStatus = 'success' %}
                                             {% endif %}
-                                            <span class=\"label status-{{ responseStatus }}\">
+                                            <span class=\"font-normal status-response-status-code status-{{ responseStatus }}\">
                                                 {{ trace.http_code }}
                                             </span>
-                                        </th>
-                                        <td{% if trace.curlCommand %} colspan=\"2\"{% endif %}>
+
                                             {{ profiler_dump(trace.info, maxDepth=1) }}
                                         </td>
                                         {% if profiler_token and profiler_link %}

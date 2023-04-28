@@ -20,7 +20,7 @@ class PoolConfig
     private $_usedProperties = [];
 
     /**
-     * @param mixed $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|mixed $value
      *
      * @return $this
      */

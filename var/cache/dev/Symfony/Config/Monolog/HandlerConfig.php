@@ -226,8 +226,11 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @default {"enabled":null}
      * @return \Symfony\Config\Monolog\HandlerConfig\ProcessPsr3MessagesConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\ProcessPsr3MessagesConfig : static)
      */
     public function processPsr3Messages(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\ProcessPsr3MessagesConfig|static
     {
@@ -431,7 +434,10 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\ExcludedHttpCodeConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\ExcludedHttpCodeConfig : static)
      */
     public function excludedHttpCode(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\ExcludedHttpCodeConfig|static
     {
@@ -1110,11 +1116,11 @@ class HandlerConfig
     }
 
     /**
-     * @param mixed $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|string $value
      *
      * @return $this
      */
-    public function tags(mixed $value): static
+    public function tags(ParamConfigurator|string|array $value): static
     {
         $this->_usedProperties['tags'] = true;
         $this->tags = $value;
@@ -1180,9 +1186,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\PublisherConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\PublisherConfig : static)
      */
-    public function publisher(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\PublisherConfig|static
+    public function publisher(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\PublisherConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['publisher'] = true;
@@ -1202,9 +1211,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\MongoConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\MongoConfig : static)
      */
-    public function mongo(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\MongoConfig|static
+    public function mongo(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\MongoConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['mongo'] = true;
@@ -1224,9 +1236,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig : static)
      */
-    public function elasticsearch(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig|static
+    public function elasticsearch(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\ElasticsearchConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['elasticsearch'] = true;
@@ -1285,9 +1300,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\RedisConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\RedisConfig : static)
      */
-    public function redis(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\RedisConfig|static
+    public function redis(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\RedisConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['redis'] = true;
@@ -1307,9 +1325,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\PredisConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\PredisConfig : static)
      */
-    public function predis(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\PredisConfig|static
+    public function predis(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\PredisConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['predis'] = true;
@@ -1342,11 +1363,11 @@ class HandlerConfig
     }
 
     /**
-     * @param mixed $value
+     * @param ParamConfigurator|list<ParamConfigurator|mixed>|string $value
      *
      * @return $this
      */
-    public function toEmail(mixed $value): static
+    public function toEmail(ParamConfigurator|string|array $value): static
     {
         $this->_usedProperties['toEmail'] = true;
         $this->toEmail = $value;
@@ -1407,9 +1428,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig : static)
      */
-    public function emailPrototype(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig|static
+    public function emailPrototype(string|array $value = []): \Symfony\Config\Monolog\HandlerConfig\EmailPrototypeConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['emailPrototype'] = true;
@@ -1442,9 +1466,12 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig : static)
      */
-    public function verbosityLevels(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig|static
+    public function verbosityLevels(array $value = []): \Symfony\Config\Monolog\HandlerConfig\VerbosityLevelsConfig|static
     {
         if (!\is_array($value)) {
             $this->_usedProperties['verbosityLevels'] = true;
@@ -1464,7 +1491,10 @@ class HandlerConfig
     }
 
     /**
+     * @template TValue
+     * @param TValue $value
      * @return \Symfony\Config\Monolog\HandlerConfig\ChannelsConfig|$this
+     * @psalm-return (TValue is array ? \Symfony\Config\Monolog\HandlerConfig\ChannelsConfig : static)
      */
     public function channels(mixed $value = []): \Symfony\Config\Monolog\HandlerConfig\ChannelsConfig|static
     {

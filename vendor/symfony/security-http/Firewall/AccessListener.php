@@ -45,18 +45,12 @@ class AccessListener extends AbstractListener
         $this->map = $map;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function supports(Request $request): ?bool
     {
         [$attributes] = $this->map->getPatterns($request);
         $request->attributes->set('_access_control_attributes', $attributes);
 
-        if ($attributes && (
-            (\defined(AuthenticatedVoter::class.'::IS_AUTHENTICATED_ANONYMOUSLY') ? [AuthenticatedVoter::IS_AUTHENTICATED_ANONYMOUSLY] !== $attributes : true)
-            && [AuthenticatedVoter::PUBLIC_ACCESS] !== $attributes
-        )) {
+        if ($attributes && [AuthenticatedVoter::PUBLIC_ACCESS] !== $attributes) {
             return true;
         }
 
@@ -75,17 +69,13 @@ class AccessListener extends AbstractListener
         $attributes = $request->attributes->get('_access_control_attributes');
         $request->attributes->remove('_access_control_attributes');
 
-        if (!$attributes || ((
-            (\defined(AuthenticatedVoter::class.'::IS_AUTHENTICATED_ANONYMOUSLY') ? [AuthenticatedVoter::IS_AUTHENTICATED_ANONYMOUSLY] === $attributes : false)
-            || [AuthenticatedVoter::PUBLIC_ACCESS] === $attributes
-        ) && $event instanceof LazyResponseEvent)) {
+        if (!$attributes || (
+            [AuthenticatedVoter::PUBLIC_ACCESS] === $attributes && $event instanceof LazyResponseEvent
+        )) {
             return;
         }
 
-        $token = $this->tokenStorage->getToken();
-        if (null === $token) {
-            $token = new NullToken();
-        }
+        $token = $this->tokenStorage->getToken() ?? new NullToken();
 
         if (!$this->accessDecisionManager->decide($token, $attributes, $request, true)) {
             throw $this->createAccessDeniedException($request, $attributes);

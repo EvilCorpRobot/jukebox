@@ -40,7 +40,15 @@ class __TwigTemplate_cde9c58f7fa92c3efaa9331c390db20a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@Debug/Profiler/icon.svg"));
 
         // line 1
-        echo "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"#AAA\" d=\"M12 22.6c-5.8 0-10.5-4.7-10.5-10.5S6.2 1.5 12 1.5 22.5 6.2 22.5 12c0 5.9-4.7 10.6-10.5 10.6zm0-18.1c-4.2 0-7.5 3.4-7.5 7.5 0 4.2 3.4 7.5 7.5 7.5s7.5-3.4 7.5-7.5-3.3-7.5-7.5-7.5z\"/><path fill=\"#AAA\" d=\"M12 9.1c-.8 0-1.5-.7-1.5-1.5v-6c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v6c0 .8-.7 1.5-1.5 1.5zm1.5 13.3v-6c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5zM23.9 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5zM9.1 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5z\"/></svg>
+        echo "<svg xmlns=\"http://www.w3.org/2000/svg\" data-icon-name=\"icon-tabler-viewfinder\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
+    <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path>
+    <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>
+    <line x1=\"12\" y1=\"3\" x2=\"12\" y2=\"7\"></line>
+    <line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"18\"></line>
+    <line x1=\"3\" y1=\"12\" x2=\"7\" y2=\"12\"></line>
+    <line x1=\"21\" y1=\"12\" x2=\"18\" y2=\"12\"></line>
+    <line x1=\"12\" y1=\"12\" x2=\"12\" y2=\"12.01\"></line>
+</svg>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -62,7 +70,15 @@ class __TwigTemplate_cde9c58f7fa92c3efaa9331c390db20a extends Template
 
     public function getSourceContext()
     {
-        return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"#AAA\" d=\"M12 22.6c-5.8 0-10.5-4.7-10.5-10.5S6.2 1.5 12 1.5 22.5 6.2 22.5 12c0 5.9-4.7 10.6-10.5 10.6zm0-18.1c-4.2 0-7.5 3.4-7.5 7.5 0 4.2 3.4 7.5 7.5 7.5s7.5-3.4 7.5-7.5-3.3-7.5-7.5-7.5z\"/><path fill=\"#AAA\" d=\"M12 9.1c-.8 0-1.5-.7-1.5-1.5v-6c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v6c0 .8-.7 1.5-1.5 1.5zm1.5 13.3v-6c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5zM23.9 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5zM9.1 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5z\"/></svg>
+        return new Source("<svg xmlns=\"http://www.w3.org/2000/svg\" data-icon-name=\"icon-tabler-viewfinder\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
+    <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path>
+    <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>
+    <line x1=\"12\" y1=\"3\" x2=\"12\" y2=\"7\"></line>
+    <line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"18\"></line>
+    <line x1=\"3\" y1=\"12\" x2=\"7\" y2=\"12\"></line>
+    <line x1=\"21\" y1=\"12\" x2=\"18\" y2=\"12\"></line>
+    <line x1=\"12\" y1=\"12\" x2=\"12\" y2=\"12.01\"></line>
+</svg>
 ", "@Debug/Profiler/icon.svg", "C:\\Users\\theoc\\Desktop\\simplon\\brief\\cafe80\\vendor\\symfony\\debug-bundle\\Resources\\views\\Profiler\\icon.svg");
     }
 }

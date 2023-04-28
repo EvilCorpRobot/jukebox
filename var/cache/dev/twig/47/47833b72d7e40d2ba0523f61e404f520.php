@@ -44,7 +44,7 @@ class __TwigTemplate_f77bdb7ba773c5c68b93928a83a4a9d4 extends Template
 <div id=\"sfMiniToolbar-";
         // line 2
         echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 2, $this->source); })()), "html", null, true);
-        echo "\" class=\"sf-minitoolbar\" data-no-turbolink>
+        echo "\" class=\"sf-minitoolbar\" data-no-turbolink data-turbo=\"false\">
     <button type=\"button\" title=\"Show Symfony toolbar\" id=\"sfToolbarMiniToggler-";
         // line 3
         echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 3, $this->source); })()), "html", null, true);
@@ -65,7 +65,7 @@ class __TwigTemplate_f77bdb7ba773c5c68b93928a83a4a9d4 extends Template
 <div id=\"sfToolbarMainContent-";
         // line 9
         echo twig_escape_filter($this->env, (isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 9, $this->source); })()), "html", null, true);
-        echo "\" class=\"sf-toolbarreset clear-fix\" data-no-turbolink>
+        echo "\" class=\"sf-toolbarreset notranslate clear-fix\" data-no-turbolink>
     ";
         // line 10
         $context['_parent'] = $context;
@@ -188,14 +188,14 @@ $context["name"], "profiler_markup_version" =>                 // line 17
     public function getSourceContext()
     {
         return new Source("<!-- START of Symfony Web Debug Toolbar -->
-<div id=\"sfMiniToolbar-{{ token }}\" class=\"sf-minitoolbar\" data-no-turbolink>
+<div id=\"sfMiniToolbar-{{ token }}\" class=\"sf-minitoolbar\" data-no-turbolink data-turbo=\"false\">
     <button type=\"button\" title=\"Show Symfony toolbar\" id=\"sfToolbarMiniToggler-{{ token }}\" accesskey=\"D\" aria-expanded=\"false\" aria-controls=\"sfToolbarMainContent-{{ token }}\">
         {{ source('@WebProfiler/Icon/symfony.svg') }}
     </button>
 </div>
 <div id=\"sfToolbarClearer-{{ token }}\" class=\"sf-toolbar-clearer\"></div>
 
-<div id=\"sfToolbarMainContent-{{ token }}\" class=\"sf-toolbarreset clear-fix\" data-no-turbolink>
+<div id=\"sfToolbarMainContent-{{ token }}\" class=\"sf-toolbarreset notranslate clear-fix\" data-no-turbolink>
     {% for name, template in templates %}
         {% if block('toolbar', template) is defined %}
             {% with {

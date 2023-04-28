@@ -46,7 +46,7 @@ class __TwigTemplate_1067f816b3d4c353a636348d8f44e828 extends Template
     ";
         // line 2
         echo twig_include($this->env, $context, "@WebProfiler/Profiler/toolbar.html.twig", ["templates" => ["request" => "@WebProfiler/Profiler/cancel.html.twig"], "profile" => null, "profiler_url" => $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("_profiler", ["token" =>         // line 7
-(isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 7, $this->source); })())]), "profiler_markup_version" => 2]);
+(isset($context["token"]) || array_key_exists("token", $context) ? $context["token"] : (function () { throw new RuntimeError('Variable "token" does not exist.', 7, $this->source); })())]), "profiler_markup_version" => 3]);
         // line 9
         echo "
 </div>
@@ -117,7 +117,7 @@ class __TwigTemplate_1067f816b3d4c353a636348d8f44e828 extends Template
         },
         profile: null,
         profiler_url: url('_profiler', {token: token}),
-        profiler_markup_version: 2,
+        profiler_markup_version: 3,
     }) }}
 </div>
 
