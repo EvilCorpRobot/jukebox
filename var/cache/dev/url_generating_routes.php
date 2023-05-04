@@ -18,4 +18,5 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'song' => [[], ['_controller' => 'App\\Controller\\SongController::index'], [], [['text', '/song']], [], [], []],
     'song_add' => [[], ['_controller' => 'App\\Controller\\SongController::add'], [], [['text', '/song/add']], [], [], []],
+    'song_remove' => [['id'], ['_controller' => 'App\\Controller\\SongController::remove'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/song/remove']], [], [], []],
 ];

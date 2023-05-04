@@ -75,7 +75,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 ";
         // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 21
+        // line 22
         echo "</html>
 ";
         
@@ -156,6 +156,9 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 20
+        echo "<script src=\"./song.js\"></script>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -176,7 +179,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
 
     public function getDebugInfo()
     {
-        return array (  150 => 19,  132 => 16,  119 => 10,  109 => 9,  90 => 5,  79 => 21,  77 => 19,  73 => 18,  70 => 17,  68 => 16,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  160 => 20,  150 => 19,  132 => 16,  119 => 10,  109 => 9,  90 => 5,  79 => 22,  77 => 19,  73 => 18,  70 => 17,  68 => 16,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -200,6 +203,7 @@ class __TwigTemplate_b9d5eee1d542469374b3e8782f7c07a8 extends Template
     </body>
 {{ encore_entry_script_tags('app') }}
 {% block javascripts %}
+<script src=\"./song.js\"></script>
 {% endblock %}
 </html>
 ", "base.html.twig", "C:\\Users\\theoc\\Desktop\\simplon\\brief\\cafe80\\templates\\base.html.twig");

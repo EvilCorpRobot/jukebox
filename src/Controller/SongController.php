@@ -59,4 +59,12 @@ class SongController extends AbstractController
         return $this->redirectToRoute("song");
 
     }
+
+    #[Route("/song/remove/{id}", name:"song_remove", methods:["GET"])]
+    public function remove(Request $request, int $id) {
+        $song = $this->em->getRepository(Songs::class)->find($id);
+        $this->em->remove($song);
+        $this->em->flush();
+        return $this->redirectToRoute("song");
+    }
 }

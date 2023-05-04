@@ -7,11 +7,11 @@
         <div class="space"></div>
         <input type="text" name="name" id="name_text" placeholder="nom de la musique">
         <div class="space"></div>
-        <label for="song_file" class="label-file">Choisir une musique</label>
+        <label for="" class="label-file">Choisir une musique</label>
         <div class="space"></div>
         <input type="file" name="file_song" class="input-file" id="song_file">
         <div class="space"></div>
-        <label for="song_file" class="label-file">Choisir une image</label>
+        <label for="" class="label-file">Choisir une image</label>
         <div class="space"></div>
         <input type="file" name="file_image" class="input-file" id="image_file">
         <select name="type_song" id="type_song">
@@ -32,7 +32,7 @@
     <div id="show_songs_container">
     {% if songs != null %}
         {% for song in songs %}
-            <div class="songs">
+            <div class="songs" id={{song.getId()}}>
                 <div class="image-song">
                 <img src={{song.getUrlImage()}} alt="">
                 </div>
@@ -68,7 +68,7 @@ label {
 }
 
 #name_text {
-    width: 30%;
+    width: 15%;
     padding-left: 15px;
     color: #F43361;
     border: 1px solid #F43361;
@@ -93,16 +93,11 @@ label {
     color: #F43361;
 }
 
-.label-file {
-    cursor: pointer;
-}
-.label-file:hover {
-    color: #6d7679;
-}
+
 
 
 .space {
-    margin: 0 40px;
+    margin: 0 15px;
 }
 
 #show_songs_container {
