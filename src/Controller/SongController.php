@@ -66,5 +66,6 @@ class SongController extends AbstractController
         $this->em->remove($song);
         $this->em->flush();
         return $this->redirectToRoute("song");
+        
     }
 }
